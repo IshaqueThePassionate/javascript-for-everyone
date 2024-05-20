@@ -60,29 +60,6 @@ let notAssigned;
 console.log(notAssigned); // Output: undefined
 ```
 
-## 6. Symbol
-
-A `symbol` is a unique and immutable primitive value that can be used as the key of an object property. Symbols are created using the `Symbol()` function.
-
-```javascript
-let uniqueId = Symbol('id');
-
-console.log(uniqueId); // Output: Symbol(id)
-console.log(typeof uniqueId); // Output: symbol
-```
-
-## 7. BigInt
-
-`bigint` is a primitive type used to represent integers with arbitrary precision. It is created by appending `n` to the end of an integer or using the `BigInt` constructor.
-
-```javascript
-let bigNumber = 1234567890123456789012345678901234567890n;
-let anotherBigNumber = BigInt("1234567890123456789012345678901234567890");
-
-console.log(bigNumber); // Output: 1234567890123456789012345678901234567890n
-console.log(anotherBigNumber); // Output: 1234567890123456789012345678901234567890n
-```
-
 ## Summary
 
 - **String**: Textual data, e.g., `'Hello'`, `"World"`.
