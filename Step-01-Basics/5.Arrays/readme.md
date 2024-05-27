@@ -1,4 +1,3 @@
-Sure! Here's a sample `README.md` file on JavaScript arrays.
 
 # JavaScript Arrays
 
@@ -186,4 +185,3 @@ JavaScript arrays are versatile and powerful, providing numerous methods for han
 
 For more detailed information, refer to the [MDN Web Docs on Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array).
 
-Feel free to customize this `README.md` file to better suit your needs!
