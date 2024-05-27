@@ -1,6 +1,5 @@
 Sure! Here's a sample `README.md` file on JavaScript arrays.
 
-```markdown
 # JavaScript Arrays
 
 JavaScript arrays are used to store multiple values in a single variable. An array can hold values of different types, including numbers, strings, objects, and other arrays. This document provides an overview of JavaScript arrays, including their creation, manipulation, and common methods.
