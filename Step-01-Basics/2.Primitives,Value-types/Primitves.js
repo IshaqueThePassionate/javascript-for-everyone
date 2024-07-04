@@ -30,6 +30,7 @@ console.log(isHomeworkDone);  // Output: false
 
 
 
+// null 
 
 let emptyValue = null;
 
@@ -37,6 +38,7 @@ console.log(emptyValue); // Output: null
 
 
 
+// undefined
 
 let notAssigned;
 
