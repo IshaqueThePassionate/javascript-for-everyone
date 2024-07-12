@@ -46,4 +46,4 @@ JavaScript is a high-level, interpreted programming language that is widely used
 
 - frameworks.
 - **Interactivity**: JavaScript enables you to create dynamic and interactive web pages.
-- **Career Opportunities**: Proficiency in JavaScript opens up numerous career opportunities in web development and beyond.../
+- **Career Opportunities**: Proficiency in JavaScript opens up numerous career opportunities in web development and beyond.
