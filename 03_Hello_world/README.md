@@ -99,4 +99,4 @@ To get started with Node.js, let's write a simple "Hello, World!" program.
     node app.js
     ```
 
-    You should see "Hello, World from Node.js!" printed in the terminal.
+    You should see "Hello, World from Node.js!" printed in the terminal..
