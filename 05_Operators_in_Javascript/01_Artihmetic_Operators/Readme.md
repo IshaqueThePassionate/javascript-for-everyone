@@ -1,7 +1,3 @@
-Here's the updated README file that includes the new content about arithmetic operations in JavaScript, integrated in a way that makes sense:
-
----
-
 # Arithmetic Operators in JavaScript
 
 ## Introduction
@@ -197,7 +193,3 @@ console.log(a);   // 4
 ## Summary
 
 JavaScript provides a range of arithmetic operators to perform common mathematical operations. Understanding how to use these operators and their precedence is fundamental for manipulating numerical data in your programs.
-
----
-
-This README file now includes detailed explanations of basic arithmetic operations, operator precedence, and various arithmetic operators in JavaScript, along with examples. Let me know if you need any further adjustments!
