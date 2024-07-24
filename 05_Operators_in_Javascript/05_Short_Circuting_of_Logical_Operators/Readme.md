@@ -54,13 +54,5 @@ console.log(true || sideEffect());  // → true (sideEffect is not called)
 console.log(false && sideEffect()); // → false (sideEffect is not called)
 ```
 
-### The Conditional (Ternary) Operator
-The conditional operator (`? :`) also uses short-circuit evaluation. Only the selected value is evaluated.
-
-Example:
-```javascript
-let isMember = true;
-console.log(isMember ? "Welcome back!" : "Sign up now!"); // → "Welcome back!"
-```
 
 In summary, short-circuiting can optimize performance and prevent unnecessary evaluations, making logical expressions more efficient and safer.
