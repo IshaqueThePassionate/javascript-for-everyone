@@ -1,6 +1,3 @@
-
-
-
 # Conditions of Control Flow Statements in JavaScript
 
 ## Introduction
