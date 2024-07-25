@@ -1,3 +1,5 @@
+# README
+
 ## JavaScript Switch Statements
 
 ### Introduction
@@ -73,11 +75,14 @@ console.log(dayOfTheWeek(5)); // Output: Friday
 ```
 
 **Explanation:**
+
 - The function `dayOfTheWeek` takes a number `num` as an argument.
-- The `switch` statement evaluates `num` and matches it against each `case`.
-- If `num` is `1`, it returns 'Monday'. If `num` is `2`, it returns 'Tuesday', and so on.
-- If `num` does not match any `case`, it returns 'Invalid day'.
-- When `dayOfTheWeek(5)` is called, it matches `case 5` and returns 'Friday'.
+- The `switch` statement checks the value of `num` and matches it against the `case` clauses.
+- If `num` is 1, it returns 'Monday'; if `num` is 2, it returns 'Tuesday'; and so on.
+- If `num` does not match any case (i.e., it's not between 1 and 7), it returns 'Invalid day'.
+- In the example, `dayOfTheWeek(5)` is called, which matches `case 5` and returns 'Friday'.
+
+<br>
 
 ### Don't Forget to `return` or `break`
 
@@ -103,12 +108,15 @@ console.log(englishToFrench('hello')); // Output: bonjour
 ```
 
 **Explanation:**
+
 - The function `englishToFrench` takes a string `english` as an argument.
-- The `switch` statement evaluates `english` and matches it against each `case`.
-- If `english` is 'hello', it sets `french` to 'bonjour' and breaks out of the switch.
-- If `english` is 'goodbye', it sets `french` to 'au revoir' and breaks out of the switch.
-- If `english` does not match any `case`, it sets `french` to 'not recognized'.
-- When `englishToFrench('hello')` is called, it matches `case 'hello'`, sets `french` to 'bonjour', and returns 'bonjour'.
+- The `switch` statement checks the value of `english` and matches it against the `case` clauses.
+- If `english` is 'hello', it assigns 'bonjour' to the variable `french` and breaks out of the `switch` statement.
+- If `english` is 'goodbye', it assigns 'au revoir' to `french` and breaks out of the `switch` statement.
+- If `english` does not match any case, it assigns 'not recognized' to `french`.
+- In the example, `englishToFrench('hello')` is called, which matches `case 'hello'`, assigns 'bonjour' to `french`, and returns 'bonjour'.
+
+<br>
 
 Without `break`, the execution falls through to the next `case` clause:
 
@@ -128,9 +136,13 @@ console.log(englishToFrenchWithoutBreak('hello')); // Output: au revoir
 ```
 
 **Explanation:**
-- In this version, the `break` statements are omitted.
-- When `englishToFrenchWithoutBreak('hello')` is called, it matches `case 'hello'`, sets `french` to 'bonjour', and then falls through to `case 'goodbye'`, setting `french` to 'au revoir'.
-- This demonstrates the importance of using `break` to prevent fall-through behavior.
+
+- The function `englishToFrenchWithoutBreak` is similar to the previous function but lacks `break` statements.
+- When `englishToFrenchWithoutBreak('hello')` is called, it matches `case 'hello'` and assigns 'bonjour' to `french`.
+- However, due to the lack of a `break` statement, execution falls through to the next `case` clause, assigning 'au revoir' to `french`.
+- As a result, the function returns 'au revoir' instead of 'bonjour'.
+
+<br>
 
 ### Empty Case Clauses
 
@@ -162,16 +174,73 @@ console.log(getColor(7)); // Output: Unknown
 ```
 
 **Explanation:**
+
 - The function `getColor` takes a number `value` as an argument.
-- The `switch` statement evaluates `value` and matches it against each `case`.
-- `case 1`, `case 2`, and `case 3` share the same block of code, setting `color` to 'Red'.
-- `case 4`, `case 5`, and `case 6` share another block of code, setting `color` to 'Green'.
-- If `value` does not match any `case`, it sets `color` to 'Unknown'.
-- When `getColor(2)` is called, it matches `case 2` and returns 'Red'.
-- When `getColor(5)` is called, it matches `case 5` and returns 'Green'.
-- When `getColor(7)` is called, it does not match any `case` and returns 'Unknown'.
+- The `switch` statement checks the value and matches it against multiple `case` clauses without statements.
+- If `value` is 1, 2, or 3, it assigns 'Red' to the variable `color` and breaks out of the `switch` statement.
+- If `value` is 4, 5, or 6, it assigns 'Green' to `color` and breaks out of the `switch` statement.
+- If `value` does not match any case, it assigns 'Unknown' to `color`.
+- In the examples:
+  - `getColor(2)` matches `case 2` and returns 'Red'.
+  - `getColor(5)` matches `case 5` and returns 'Green'.
+  - `getColor(7)` does not match any case and returns 'Unknown'.
 
 <br>
+
+### Checking for Illegal Values via a Default Clause
+
+A default clause is jumped to if the `switch` expression has no other match. That makes it useful for error checking:
+
+```javascript
+function isWeekDay(name) {
+  switch (name) {
+    case 'Monday':
+    case 'Tuesday':
+    case 'Wednesday':
+    case 'Thursday':
+    case 'Friday':
+      return true;
+    case 'Saturday':
+    case 'Sunday':
+      return false;
+    default:
+      throw new Error('Illegal value: ' + name);
+  }
+}
+
+console.log(isWeekDay('Wednesday')); // Output: true
+console.log(isWeekDay('Sunday')); // Output: false
+```
+
+**Explanation:**
+
+- The function `isWeekDay` takes a string `name` as an argument.
+- The `switch` statement checks the value of `name` and matches it against the `case` clauses.
+- If `name` is a weekday ('Monday' to 'Friday'), it returns `true`.
+- If `name` is a weekend day ('Saturday' or 'Sunday'), it returns `false`.
+- If `name` does not match any case, the `default` clause throws an error with a message indicating the illegal value.
+- In the examples:
+  - `isWeekDay('Wednesday')` matches `case 'Wednesday'` and returns `true`.
+  - `isWeekDay('Sunday')` matches `case 'Sunday'` and returns `false`.
+
+<br>
+
+To demonstrate the error handling with an illegal value:
+
+```javascript
+assert.throws(
+  () => isWeekDay('January'),
+  { message: 'Illegal value: January' }
+);
+```
+
+**Explanation:**
+
+- The `assert.throws` function checks if calling `isWeekDay('January')` throws an error.
+- Since 'January' does not match any case, the `default` clause is executed, throwing an error with the message 'Illegal value: January'.
+
+<br>
+
 ### Summary
 
 - The `switch` statement provides a way to execute different blocks of code based on the evaluation of an expression.
@@ -179,3 +248,5 @@ console.log(getColor(7)); // Output: Unknown
 - Use `break` to prevent fall-through to subsequent `case` clauses.
 - `default` provides a way to handle cases where no matching `case` is found.
 - Empty `case` clauses can be used to group multiple values together.
+- The `default` clause can be used for error checking by handling illegal or unexpected values.
+
