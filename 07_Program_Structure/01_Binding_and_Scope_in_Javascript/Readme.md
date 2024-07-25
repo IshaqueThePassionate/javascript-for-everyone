@@ -164,7 +164,7 @@ console.log(name); // Output: Alice
 - Use `let` and `const` instead of `var` to avoid issues with hoisting and scope.
 - Prefer `const` for variables that should not be reassigned to enhance code readability and maintainability.
 - Use meaningful and descriptive names for variables to make the code more understandable.
-- Avoid using global variables to reduce the risk of variable collisions and improve modularity.
+- Avoid using global variables to reduce the risk of variable collisions and improve modularity..
 
 
 
