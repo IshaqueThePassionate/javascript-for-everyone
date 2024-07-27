@@ -248,5 +248,5 @@ assert.throws(
 - Use `break` to prevent fall-through to subsequent `case` clauses.
 - `default` provides a way to handle cases where no matching `case` is found.
 - Empty `case` clauses can be used to group multiple values together.
-- The `default` clause can be used for error checking by handling illegal or unexpected values..
+- The `default` clause can be used for error checking by handling illegal or unexpected values.
 
