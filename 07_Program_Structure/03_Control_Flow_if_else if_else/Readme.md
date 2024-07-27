@@ -307,4 +307,4 @@ if (!Number.isNaN(theNumber)) {
   - If `theNumber` is 100 or greater, it prints "This is a large number."
 - If `theNumber` is not a valid number, it prints "Hey. Why didn't you give me a number?"
 
-These examples should help you understand the usage of `if`, `else if`, and `else` statements in JavaScript for both simple and complex scenarios.
+These examples should help you understand the usage of `if`, `else if`, and `else` statements in JavaScript for both simple and complex scenarios..
