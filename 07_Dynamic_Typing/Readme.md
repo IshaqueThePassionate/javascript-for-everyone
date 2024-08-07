@@ -63,4 +63,4 @@ number = "Hello";      // Compilation error: incompatible types
 
 ### Conclusion
 
-Understanding the differences between dynamic and static typing is crucial for selecting the right language for your project. JavaScript's dynamic typing offers great flexibility and ease of use, especially for web development and scripting, but requires careful management to avoid runtime errors.
+Understanding the differences between dynamic and static typing is crucial for selecting the right language for your project. JavaScript's dynamic typing offers great flexibility and ease of use, especially for web development and scripting, but requires careful management to avoid runtime errors..
