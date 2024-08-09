@@ -76,4 +76,4 @@ person1 = person;
 3. **Step 3**: The diagram shows that both `person` and `person1` are referencing (pointing) to the same object in memory.
 
 
-This demonstrates that in JavaScript, objects are reference types, meaning that multiple variables can reference the same object in memory. If one variable is used to modify the object, the changes will be reflected across all variables referencing that object..
+This demonstrates that in JavaScript, objects are reference types, meaning that multiple variables can reference the same object in memory. If one variable is used to modify the object, the changes will be reflected across all variables referencing that object.
