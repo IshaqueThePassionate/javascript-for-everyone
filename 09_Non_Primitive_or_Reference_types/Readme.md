@@ -77,3 +77,9 @@ person1 = person;
 
 
 This demonstrates that in JavaScript, objects are reference types, meaning that multiple variables can reference the same object in memory. If one variable is used to modify the object, the changes will be reflected across all variables referencing that object.
+
+
+
+
+
+
