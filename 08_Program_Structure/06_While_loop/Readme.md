@@ -17,7 +17,13 @@ Here,
 4. This process continues as long as the condition evaluates to true.
 5. If the condition evaluates to `false`, the loop stops.
 
+<br>
 
+## Flowchart of while Loop
+
+<br>
+
+<img src="./images/Capture.PNG">
 
 
 ## Syntax
