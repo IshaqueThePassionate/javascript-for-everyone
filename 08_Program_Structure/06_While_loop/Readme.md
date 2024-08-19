@@ -17,7 +17,7 @@ Here,
 4. This process continues as long as the condition evaluates to true.
 5. If the condition evaluates to `false`, the loop stops.
 
-![Flowchart of while Loop](images/Capture.PNG.png)
+![Flowchart of while Loop](images/C:\Users\h\OneDrive\Desktop\Javascript\08_Program_Structure\06_While_loop\images\Capture.PNG)
 
 
 ## Syntax
