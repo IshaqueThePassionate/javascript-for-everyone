@@ -37,9 +37,9 @@ Here, `"A"` has a lower Unicode value than `"a"`, and `"Z"` has a lower Unicode 
 ### Other Comparison Operators
 - **`>=`**: Greater than or equal to
 - **`<=`**: Less than or equal to
-- **`==`**: Equal to
+- **`==`**: Equality or Loose Equslity
 - **`!=`**: Not equal to
-
+- **`===`**: strict Equality
 
 ## Greater Than or Equal To (`>=`)
 
@@ -111,6 +111,16 @@ console.log("Garnet" != "Ruby"); // → true
 console.log("Pearl" == "Amethyst"); // → false
 ```
 
+## Scrict Equality (`===`)
+
+In JavaScript, `===` is the strict equality operator. It checks if two values are exactly equal in both value and type, without performing type conversion. Unlike `==`, which can coerce types, `===` requires that both the value and type match for the comparison to return `true`.
+
+
+```javascript
+5 === 5;      // true
+5 === "5";    // false (different types)
+```
+
 ### Special Case: NaN
 `NaN` (Not a Number) is a special value in JavaScript that is not equal to itself.
 
@@ -119,3 +129,4 @@ Example:
 console.log(NaN == NaN); // → false
 ```
 `NaN` denotes the result of an invalid or nonsensical computation, and as such, it isn't considered equal to any other value, including itself.
+
