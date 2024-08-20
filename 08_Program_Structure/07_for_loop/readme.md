@@ -1,6 +1,3 @@
-Here’s a README file that explains the `for` loop in JavaScript:
-
----
 
 # JavaScript `for` Loop
 
@@ -29,6 +26,10 @@ for (initialization; condition; increment) {
 3. **Code Execution**: The code inside the loop is executed.
 4. **Increment**: The loop variable is updated (e.g., incremented).
 5. **Repeat**: Steps 2 through 4 are repeated until the condition becomes `false`.
+
+## Flowchart of while Loop.
+
+<img src="./images/do...while loop.PNG" >
 
 ## Example 1: Basic `for` Loop
 
@@ -142,7 +143,3 @@ for (let i = 0; i <= 5; i++) {  // Runs 6 times instead of 5
 ## Conclusion
 
 The `for` loop in JavaScript is a versatile and commonly used looping structure that allows you to iterate over sequences, such as numbers or arrays, efficiently. By understanding how to control the loop with initialization, condition checks, and increments, you can use `for` loops to perform repeated tasks in your programs.
-
----
-
-This README file provides a clear explanation of the `for` loop in JavaScript, complete with syntax, examples, and common pitfalls to help you understand how to use this loop effectively in your code.
