@@ -71,4 +71,4 @@ Arrays are ordered collections of values, where each value is called an element 
 
 ## Conclusion
 
-This guide covers the basic structure and components of JavaScript programs. By understanding these fundamentals, you can start writing your own JavaScript programs and build more complex applications as you progress.
+This guide covers the basic structure and components of JavaScript programs. By understanding these fundamentals, you can start writing your own JavaScript programs and build more complex applications as you progress..
