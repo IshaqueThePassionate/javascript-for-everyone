@@ -17,6 +17,10 @@ do {
 - **`Code to be executed`**: This is the block of code that will be executed at least once, and then repeatedly as long as the condition remains `true`.
 - **`condition`**: This is a boolean expression that is evaluated after each iteration. If the condition is `true`, the loop will continue to execute; if `false`, the loop will terminate.
 
+## Flowchart of do...while Loop
+
+<img src="./images/do...while loop.PNG">
+
 ### Example: Basic `do...while` Loop
 
 ```javascript
