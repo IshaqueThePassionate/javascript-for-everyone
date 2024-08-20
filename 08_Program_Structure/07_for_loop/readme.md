@@ -27,9 +27,9 @@ for (initialization; condition; increment) {
 4. **Increment**: The loop variable is updated (e.g., incremented).
 5. **Repeat**: Steps 2 through 4 are repeated until the condition becomes `false`.
 
-## Flowchart of while Loop.
+## Flowchart of for Loop.
 
-<img src="./images/do...while loop.PNG" >
+<img src="./images/for loop.PNG" >
 
 ## Example 1: Basic `for` Loop
 
