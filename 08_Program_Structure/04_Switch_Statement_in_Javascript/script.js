@@ -1,45 +1,113 @@
 
-// If statement: Executes the block of code if the condition is true
+// Switch Statement for Days of the Week
 
-let age = 20;
-if (age >= 18) {
-  console.log("You are an adult.");  // Executes because age is greater than or equal to 18
+let day = 3;
+
+switch (day) {
+  case 1:
+    console.log("Monday");
+    break;
+  case 2:
+    console.log("Tuesday");
+    break;
+  case 3:
+    console.log("Wednesday");
+    break;
+  case 4:
+    console.log("Thursday");
+    break;
+  case 5:
+    console.log("Friday");
+    break;
+  case 6:
+    console.log("Saturday");
+    break;
+  case 7:
+    console.log("Sunday");
+    break;
+  default:
+    console.log("Invalid day");
 }
 
 
-// If-Else statement: Executes the first block if the condition is true, otherwise executes the second block
 
-let isSunny = true;
-if (isSunny) {
-  console.log("Let's go to the beach!");  // Executes because isSunny is true
-} else {
-  console.log("Stay inside and watch a movie.");  // Will not execute
+// Switch Statement for Fruits
+
+let fruit = "apple";
+
+switch (fruit) {
+  case "banana":
+    console.log("Bananas are yellow.");
+    break;
+  case "apple":
+    console.log("Apples are red.");
+    break;
+  case "grape":
+    console.log("Grapes are purple.");
+    break;
+  default:
+    console.log("Unknown fruit.");
 }
 
 
-// If-Else If-Else statement: Checks multiple conditions in sequence
 
-let score = 65;
-if (score >= 90) {
-  console.log("Grade: A");  // Will not execute
-} else if (score >= 80) {
-  console.log("Grade: B");  // Will not execute
-} else if (score >= 70) {
-  console.log("Grade: C");  // Will not execute
-} else if (score >= 60) {
-  console.log("Grade: D");  // Executes because score is greater than or equal to 60
-} else {
-  console.log("Grade: F");  // Will not execute
+// Switch Statement for Grades Based on Score
+
+let score = 85;
+
+switch (true) {
+  case score >= 90:
+    console.log("A grade");
+    break;
+  case score >= 80:
+    console.log("B grade");
+    break;
+  case score >= 70:
+    console.log("C grade");
+    break;
+  case score >= 60:
+    console.log("D grade");
+    break;
+  default:
+    console.log("F grade");
 }
 
 
-// Example with multiple conditions and else block
 
-let temperature = 30;
-if (temperature > 35) {
-  console.log("It's extremely hot outside!");  // Will not execute
-} else if (temperature > 25) {
-  console.log("It's a warm day!");  // Executes because temperature is greater than 25
-} else {
-  console.log("It's a cool day.");  // Will not execute
+// Switch Statement for Traffic Light
+
+let trafficLight = "green";
+
+switch (trafficLight) {
+  case "red":
+    console.log("Stop");
+    break;
+  case "yellow":
+    console.log("Caution");
+    break;
+  case "green":
+    console.log("Go");
+    break;
+  default:
+    console.log("Invalid light color");
+}
+
+
+
+// Switch Statement for Clothing Size
+
+let size = "M";
+
+switch (size) {
+  case "S":
+    console.log("Small size");
+    break;
+  case "M":
+    console.log("Medium size");
+    break;
+  case "L":
+    console.log("Large size");
+    break;
+  default:
+    console.log("Unknown size");
 }
