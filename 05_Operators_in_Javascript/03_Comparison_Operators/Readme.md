@@ -39,6 +39,7 @@ Here, `"A"` has a lower Unicode value than `"a"`, and `"Z"` has a lower Unicode 
 - **`<=`**: Less than or equal to
 - **`==`**: Equality or Loose Equslity
 - **`!=`**: Not equal to
+- **`!==`**: strict not Equality
 - **`===`**: strict Equality
 
 ## Greater Than or Equal To (`>=`)
@@ -110,6 +111,38 @@ Examples:
 console.log("Garnet" != "Ruby"); // → true
 console.log("Pearl" == "Amethyst"); // → false
 ```
+
+## Scrict not Equality (`!==`)
+
+If either the value or the type is not the same, it returns true. If both the value and type are the same, it returns false.
+
+### Example
+
+```javascript
+const correctPassword = "12345";
+let userPassword;
+
+while (userPassword !== correctPassword) {
+    userPassword = prompt("Enter your password:");
+}
+
+console.log("Access granted!");
+```
+
+### Example
+
+```javascript
+const secretNumber = 7;
+let guess;
+
+while (guess !== secretNumber) {
+    guess = parseInt(prompt("Guess the secret number:"));
+}
+
+console.log("Congratulations! You guessed the secret number.");
+
+```
+
 
 ## Scrict Equality (`===`)
 
