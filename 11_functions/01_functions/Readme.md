@@ -2,8 +2,6 @@
 
 <br>
 
-**Functions** are central tools in JavaScript programming. They allow us to wrap a piece of code in a value, providing a way to structure larger programs, reduce repetition, associate names with subprograms, and isolate these subprograms from each other.
-
 Functions are one of the fundamental building blocks in JavaScript. A function is a reusable block of code designed to perform a particular task. Functions allow you to encapsulate code, making it modular and easier to manage, test, and debug.
 
 ## What is a Function?
