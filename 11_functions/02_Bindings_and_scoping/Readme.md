@@ -83,7 +83,55 @@ Here, the `addIngredient` function has access to the `multiplier` variable from 
 
 JavaScript uses **lexical scoping**, meaning the visibility of variables is determined by their location in the source code. An inner function can access variables from its outer scope, but the outer scope cannot access variables from the inner scope.
 
----
+Here’s an example of **lexical scope** in JavaScript:
+
+```javascript
+function outerFunction() {
+  let outerVariable = "I am from the outer scope!";
+
+  function innerFunction() {
+    console.log(outerVariable); // Can access outerVariable due to lexical scope
+  }
+
+  innerFunction();
+}
+
+outerFunction();
+```
+
+### Explanation:
+
+- **Lexical scope** means that JavaScript determines the scope of variables based on the position where the function is declared in the source code, not where it's called.
+- In this example, the `innerFunction` can access the `outerVariable` because it is defined inside `outerFunction` where `outerVariable` is declared.
+- The **innerFunction** forms a closure over the scope of `outerFunction`, allowing it to access `outerVariable` even though it's not declared inside `innerFunction`.
+
+**Key point**: Lexical scope ensures that inner functions have access to variables declared in their outer scope due to where they are defined in the code.
+
+<br>
+<br>
+
+Here's an example that is the **opposite of lexical scope**, where the inner function cannot access a variable from the outer scope because of where it is declared:
+
+```javascript
+function outerFunction() {
+  function innerFunction() {
+    console.log(outerVariable); // ReferenceError: outerVariable is not defined
+  }
+
+  innerFunction();
+}
+
+outerFunction();
+
+let outerVariable = "I am from the outer scope!";
+```
+
+### Explanation:
+- In this example, `innerFunction` tries to access `outerVariable`, but since `outerVariable` is declared **after** the function is defined, it is not available to the inner function.
+- **Lexical scope** means that JavaScript determines which variables are accessible based on where the function is **defined**, not where it is **called**.
+- As a result, this code will throw an error: **ReferenceError: outerVariable is not defined**.
+
+**Key Point**: If a variable is declared after a function, it will not be available to the inner function due to the rules of lexical scope, which depend on where functions are defined, not where they are called.
 
 ### Summary
 
