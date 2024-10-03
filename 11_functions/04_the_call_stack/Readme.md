@@ -1,9 +1,45 @@
 
 # Understanding the JavaScript Call Stack
 
-The Call Stack in JavaScript is a mechanism that keeps track of the function calls in a program. It operates on a LIFO (Last In, First Out) principle, meaning the most recent function call is completed first.
+In JavaScript, the **call stack** is a mechanism that tracks the execution of functions. Whenever a function is called, it gets added to the call stack, and once the function completes its task, it is removed from the stack. The purpose of the call stack is to ensure that functions execute in the correct order, one after the other, following the **Last In, First Out (LIFO)** principle.
 
-The **Call Stack** is a fundamental concept in JavaScript that keeps track of function calls and the order in which they are executed. It works on the **LIFO (Last In, First Out)** principle, where the last function called is the first one to complete.
+<br>
+
+# LIFO (Last In, First Out)
+
+**LIFO** stands for **Last In, First Out**, meaning the item that is added last is the one removed first. This means that the element or item placed last in the stack is the first one to be taken out. This concept is used in stacks, like the call stack in JavaScript.
+
+<br>
+
+<img src="./images/call stack in js .PNG">
+
+<br>
+<br>
+
+# Single-threaded
+
+The JavaScript call stack is **single-threaded**, meaning it can handle only one task at a time. Because of this, synchronous code executes one operation at a time, and the next operation doesn't start until the current one is complete.
+
+```javascript
+function firstTask() {
+  console.log("First task is running.");
+}
+
+function secondTask() {
+  console.log("Second task is running.");
+}
+
+firstTask();  // Runs first
+secondTask(); // Runs after the first task is complete
+```
+
+### Output:
+```
+First task is running.
+Second task is running.
+```
+
+In this example, the `firstTask()` is executed completely before the `secondTask()` starts. Since JavaScript is single-threaded, it processes these tasks one at a time in the order they appear.
 
 
 ### Problem Statement
