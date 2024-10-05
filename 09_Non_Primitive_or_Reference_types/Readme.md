@@ -4,7 +4,7 @@ In JavaScript, objects are called reference types because when you assign an obj
 
 
 
- Here are the important aspects of reference types in JavaScript :
+ Here are the important aspects of reference types in JavaScript:
   
 
 ### 1. **Mutability**
