@@ -147,6 +147,54 @@ This example shows a function `collectArgs` that gathers all passed arguments an
 
 ---
 
+Let's look at a practical example of closures in the context of a **simple shopping cart** feature:
+
+
+## Example: Shopping Cart
+
+Imagine you want to create a simple shopping cart where users can add items, view the total price, and see all items in the cart. Closures can be used to store the cart's state privately and allow controlled access to add items or view the cart.
+
+```javascript
+function createShoppingCart() {
+  let items = []; // Private array to hold items
+
+  return {
+    addItem: function(item, price) {
+      items.push({ item, price });
+      console.log(`${item} added to the cart.`);
+    },
+    getTotal: function() {
+      return items.reduce((total, currentItem) => total + currentItem.price, 0);
+    },
+    getItems: function() {
+      return items.slice(); // Return a copy of the items array
+    }
+  };
+}
+
+const cart = createShoppingCart();
+
+// Adding items to the cart
+cart.addItem("Apple", 1.99);   // Output: "Apple added to the cart."
+cart.addItem("Banana", 0.99);  // Output: "Banana added to the cart."
+
+// Viewing total price
+console.log("Total Price: $" + cart.getTotal()); // Output: Total Price: $2.98
+
+// Viewing all items in the cart
+console.log("Items in Cart:", cart.getItems());  
+// Output: Items in Cart: [ { item: 'Apple', price: 1.99 }, { item: 'Banana', price: 0.99 } ]
+```
+
+### How This Uses a Closure
+- The `createShoppingCart` function defines a private `items` array, which holds the items added to the cart.
+- It returns an object containing three methods (`addItem`, `getTotal`, and `getItems`).
+- These methods form a closure, having access to the `items` array even after `createShoppingCart` has finished executing.
+- This setup keeps `items` private and allows controlled access, mimicking a shopping cart in an e-commerce application.
+
+
+
+
 ## Conclusion: Understanding Closures in JavaScript
 
 - A **closure** is created when a function retains access to the variables in its outer scope.
