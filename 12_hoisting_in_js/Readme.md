@@ -4,6 +4,8 @@ Hoisting is a JavaScript concept that explains how variable and function declara
 
 ### What is Hoisting?
 
+JavaScript Hoisting refers to the process whereby the interpreter appears to move the declaration of functions, variables, classes, or imports to the top of their scope, prior to execution of the code.
+
 The term "hoisting" is not a normatively defined concept in the ECMAScript specification. Instead, it is a term introduced by developers to describe how JavaScript's variable and function declarations are processed before the code execution.
 
 Hoisting in JavaScript is a mechanism where variable and function declarations are moved to the top of their containing scope during the compile phase, before the code is actually executed. This means that you can use functions and variables before they are declared in the code, but there are important differences between how hoisting works for variables and functions.
