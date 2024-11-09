@@ -101,7 +101,114 @@ function parentFunction() {
 }
 
 parentFunction();
+```
 
+## Another example..
+
+In this example when you are defining two functions with two differenct scopes, in this specific situation both can access the varibles of the outer function but, one can not be able to access the varible of another, means `inner2` won't be able to access the varibales of `innner`, function.
+
+In this code, the `outer` function defines two inner functions: `inner` and `inner2`. The `inner` function declares a variable `secret` that is **local** to itself. This means `secret` exists only within the `inner` function and cannot be accessed outside of it.
+
+When `inner2` tries to `console.log(secret)`, it results in an error because `secret` is not defined in the scope of `inner2` or `outer`. Each function has its own separate scope, and variables declared inside one inner function aren't accessible to its sibling functions.
+
+Here's a simplified view:
+
+```javascript
+function outer() {
+    let username = "ishaque";
+    
+    function inner() {
+        let secret = "12345"; // Only accessible within inner
+    }
+
+    function inner2(){
+        console.log(secret); // Error: secret is not accessible here
+    }
+
+    inner();
+    inner2();
+}
+
+outer();
+```
+
+To allow `inner2` to access `secret`, you would need to define `secret` in a scope that's accessible to both functions, such as within `outer`.
+
+so to solve this ,
+
+### Move `secret` to `outer`:
+
+```javascript
+function outer() {
+    let username = "ishaque";
+    let secret = "12345"; // Moved to `outer`
+
+    console.log("outer", username);
+    
+    function inner() {
+        console.log("inner", username);
+    }
+
+    function inner2(){
+        console.log(secret); // Now accessible
+        console.log("inner2", username);
+    }
+
+    inner();
+    inner2();
+}
+
+outer();
+```
+
+``` javascript
+function outer() {
+    let username = "ishaque";
+
+    console.log("outer", username);
+    
+    function inner() {
+        let secret = "12345";
+        console.log("inner", username);
+        
+        function inner2(){
+            console.log(secret); // Accessible because `inner2` is inside `inner`
+            console.log("inner2", username);
+        }
+
+        inner2();
+    }
+
+    inner();
+}
+
+outer();
+```
+
+### Return `secret` from `inner` and Pass It to `inner2`:
+
+```javascript
+function outer() {
+    let username = "ishaque";
+
+    console.log("outer", username);
+    
+    function inner() {
+        let secret = "12345";
+        console.log("inner", username);
+        return secret;
+    }
+
+    function inner2(secret){
+        console.log(secret); // Now accessible
+        console.log("inner2", username);
+    }
+
+    const secret = inner();
+    inner2(secret);
+}
+
+outer();
 ```
 
 ## Takeaways:
