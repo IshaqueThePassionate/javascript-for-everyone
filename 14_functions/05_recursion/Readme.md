@@ -133,4 +133,4 @@ countdown(5); // This will print 5 to 1
 - **Loops** are generally preferred for simple, repetitive tasks like iterating over arrays or performing a fixed number of iterations.
 - **Recursion** is useful when a problem can naturally be divided into smaller, similar problems (e.g., tree traversal, factorial calculation, Fibonacci numbers, etc.).
 
-Both loops and recursion achieve repetition, but recursion is more suited for solving complex problems, while loops are more efficient for simpler, iterative tasks.
+Both loops and recursion achieve repetition, but recursion is more suited for solving complex problems, while loops are more efficient for simpler, iterative tasks...
