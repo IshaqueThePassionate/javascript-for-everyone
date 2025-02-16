@@ -36,16 +36,16 @@ console.log(filteredMonths);
 
 // Example 2: Filtering Adult Students
 const students = [
-    { name: 'Akash', age: 21 },
-    { name: 'Adarsh', age: 17 },
+    { name: 'Ahmed', age: 21 },
+    { name: 'Sohail', age: 17 },
     { name: 'Amir', age: 18 },
-    { name: 'Raman', age: 23 },
-    { name: 'Nidhi', age: 16 },
+    { name: 'Rehman', age: 23 },
+    { name: 'Naadir', age: 16 },
 ];
 
 const adultStudents = students.filter(student => student.age >= 18);
 console.log(adultStudents);
-// Output: [{ name: 'Akash', age: 21 }, { name: 'Amir', age: 18 }, { name: 'Raman', age: 23 }]
+// Output: [{ name: 'Ahmed', age: 21 }, { name: 'Amir', age: 18 }, { name: 'Rehman', age: 23 }]
 
 
 // Real-World Example: Filtering Available Products
