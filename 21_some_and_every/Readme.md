@@ -117,9 +117,62 @@ console.log(allSubmitted); // Output: false (John has not submitted)
 
 ---
 
+# Custom Implementation of `some()` in JavaScript
+
+## Overview
+In JavaScript, the `some()` method is a built-in array method that checks if at least one element in an array satisfies a given condition. Internally, JavaScript handles this function within `Array.prototype`. Below is a simplified custom implementation of how `some()` might work inside JavaScript.
+
+## Implementation
+We can define `some()` manually inside `Array.prototype` as follows:
+
+```js
+Array.prototype.mySome = function(callback) {
+    for (let i = 0; i < this.length; i++) {
+        if (callback(this[i], i, this)) {
+            return true;
+        }
+    }
+    return false;
+};
+```
+
+## Example Usage
+```js
+const numbers = [2, 4, 6, 7, 8];
+const result = numbers.mySome(num => num % 2 !== 0);
+console.log(result); // Output: true (because 7 is odd)
+```
+
+## Explanation
+### **How the Code Works**
+1. **Extending `Array.prototype`**: 
+   - The method `mySome` is added to `Array.prototype`, making it available for all array instances.
+2. **Looping Through the Array**:
+   - A `for` loop iterates through each element of the array.
+3. **Applying the Callback Function**:
+   - The `callback` function is executed for each element in the array.
+   - It receives three parameters:
+     - `this[i]`: The current element of the array.
+     - `i`: The current index.
+     - `this`: The entire array.
+4. **Checking the Condition**:
+   - If the callback returns `true` for any element, `mySome` immediately returns `true`.
+5. **Returning the Result**:
+   - If no element satisfies the condition, the loop completes and returns `false`.
+
+### **Example Breakdown**
+- **Array:** `[2, 4, 6, 7, 8]`
+- **Condition:** `num % 2 !== 0` (checks if the number is odd)
+- **Iteration Steps:**
+  1. `2` → Even (`false`)
+  2. `4` → Even (`false`)
+  3. `6` → Even (`false`)
+  4. `7` → Odd (`true`) → Function **returns `true` immediately**.
+- **Final Output:** `true`
+
 ## Conclusion
-- Use `some()` when you need to check if **at least one** element passes a condition.
-- Use `every()` when you need to verify that **all elements** satisfy a condition.
-- These methods provide **efficient** and **readable** ways to work with arrays without using loops.
+This approach shows how JavaScript prototype inheritance works and how built-in methods like `some()` can be manually implemented using `Array.prototype`. It provides insight into how JavaScript processes array elements efficiently using higher-order functions.
+
+
 
 
