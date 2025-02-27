@@ -79,5 +79,5 @@ In this example, `console.log` prints all the arguments it receives, regardless 
 - You can set default values for parameters to handle missing arguments more gracefully.
 - Functions can also accept a variable number of arguments for added flexibility.
 
-Understanding these features allows you to create more flexible and dynamic functions that can handle various use cases effortlessly.
+
 
