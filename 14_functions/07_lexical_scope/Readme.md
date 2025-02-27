@@ -214,5 +214,5 @@ outer();
 ## Takeaways:
 - **Lexical Scope** is determined at the time of **declaration**, not execution.
 - Functions can access variables from outer scopes due to the **scope chain**.
-- **Block Scope** (`let`, `const`) ensures variables are limited to the blocks they are declared in.
+- **Block Scope** (`let`, `const`) ensures variables are limited to the blocks they are declared in..
 
