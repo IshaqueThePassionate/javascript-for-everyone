@@ -201,4 +201,4 @@ console.log("Items in Cart:", cart.getItems());
 - Closures enable powerful programming techniques like **data encapsulation**, **private variables**, and **higher-order functions**.
 - JavaScript functions, combined with closures, can hold both code and the environment in which they were created, allowing functions to preserve state even after their outer scope has exited.
 
-Closures are a foundational concept in JavaScript, making it possible to write more flexible and reusable code.
+Closures are a foundational concept in JavaScript, making it possible to write more flexible and reusable code..
