@@ -49,4 +49,3 @@ JavaScript functions are essential for writing efficient, modular, and reusable 
 - **Reusability**: Write functions once, and reuse them throughout your program.
 - **Efficiency**: Understand how functions impact performance with concepts like recursion and the call stack.
 
-abdulrehman
