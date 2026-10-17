@@ -257,5 +257,5 @@ let matrix = [
 
 console.log(matrix[0][0]); // → 1 (first element in the first array)
 console.log(matrix[1][2]); // → 6 (third element in the second array)
-console.log(matrix[2][1]); // → 8 (second element in the third array)
+console.log(matrix[2][1]); // → 8 (second element in the third array).
 ```
