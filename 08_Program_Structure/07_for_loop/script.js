@@ -1,89 +1,106 @@
+// ==========================================
+// 1. Basic for Loop (1 to 5)
+// ==========================================
 
-for (let i = 0; i < 3; i++) {
-    console.log("Hello, world!");
+for (let i = 1; i <= 5; i++) {
+    console.log("Number: " + i);
 }
 
-// Output:
-// Hello, world!
-// Hello, world!
-// Hello, world!
+//------------------------------------------
 
-// In this example, we used the for loop to print "Hello, world!" three times to the console.
+// ==========================================
+// 2. Printing Odd Numbers (Forward & Backward)
+// ==========================================
 
-//------------------------------------------------------------------------------------------------------------------------
-
-
-for (let i = 1; i < 6; i++) {
+// Forward loop: Odd numbers from 1 to 15
+for (let i = 1; i <= 15; i = i + 2) {
     console.log(i);
 }
 
-// Output
-
-// 1
-// 2
-// 3
-// 4
-// 5
-
-// In this example, we have printed numbers from 1 to 5 using a for loop.
-
-//------------------------------------------------------------------------------------------------------------------------
-
-// program to display the sum of natural numbers
-
-let sum = 0;
-const n = 100
-
-// loop from i = 1 to i = n
-// in each iteration, i is increased by 1
-for (let i = 1; i <= n; i++) {
-    sum += i;  // sum = sum + i
+// Backward loop: Odd numbers from 15 down to 1
+for (let i = 15; i >= 1; i = i - 2) {
+    console.log(i);
 }
 
-console.log(`sum: ${sum}`);
+//------------------------------------------
 
-// Output: sum: 5050
+// ==========================================
+// 3. Printing Even Numbers (Forward & Backward)
+// ==========================================
 
-//------------------------------------------------------------------------------------------------------------------------
+// Forward loop: Even numbers from 2 to 10
+for (let i = 2; i <= 10; i = i + 2) {
+    console.log(i);
+}
 
+// Backward loop: Even numbers from 10 down to 2
+for (let i = 10; i >= 2; i = i - 2) {
+    console.log(i);
+}
 
-// A for loop can also be used to iterate over elements of an array. For example,
+//------------------------------------------
 
-const fruits = ["apple", "banana", "cherry"];
+// ==========================================
+// 4. Multiplication Tables
+// ==========================================
+
+// Fixed table: Multiples of 5
+for (let i = 5; i <= 50; i = i + 5) {
+    console.log(i);
+}
+
+// Dynamic table: Based on user input
+let n = prompt("enter your number");
+n = parseInt(n);
+
+for (let i = n; i <= n * 10; i = i + n) {
+    console.log(i);
+}
+
+//------------------------------------------
+
+// ==========================================
+// 5. Loops with Arrays (Forward & Backward)
+// ==========================================
+
+// Forward array iteration
+let fruits = ["apple", "mango", "litchi", "papaya", "banana"];
+fruits.push("amrood");
 
 for (let i = 0; i < fruits.length; i++) {
-    console.log(fruits[i]);
+    console.log(i, fruits[i]);
 }
 
-// Output
+// Backward array iteration
+let fruitss = ["apple", "mango", "litchi", "papaya", "banana"];
 
-// apple
-// banana
-// cherry
-
-//------------------------------------------------------------------------------------------------------------------------
-
-
-// adding last name in the elements of an array and iterating them through for loop
-
-let friends = ["ishaque", "hamza", "ali", "hashim" , "ahtesham","afaq"]
-
-for(let i = 0; i < friends.length ; i++){
-    let result = friends[i] + " khan" 
-    console.log(result);
-    
+for (let i = fruitss.length - 1; i >= 0; i--) {
+    console.log(i, fruitss[i]);
 }
 
+//------------------------------------------
 
-//------------------------------------------------------------------------------------------------------------------------
+// ==========================================
+// 6. Nested for Loops
+// ==========================================
 
-
-// iterating over even numbers, 
-
-for(let i = 0; i <= 100; i++){
-    if(i % 2 === 1){
-        console.log(i);
-        
+// Coordinate iterations (i and j)
+for (let i = 1; i <= 3; i++) {
+    for (let j = 1; j <= 3; j++) {
+        console.log(`i = ${i}, j = ${j}`);
     }
-    
+}
+
+// Loops with Nested Arrays (2D Arrays)
+let heroes = [
+    ["Ironman", "superman", "spiderman", "thor"],
+    ["superman", "superwoman", "flash"]
+];
+
+for (let i = 0; i < heroes.length; i++) {
+    console.log(i, heroes[i]);
+
+    for (let j = 0; j < heroes[i].length; j++) {
+        console.log(`j=${j} ${heroes[i][j]}`);
+    }
 }
