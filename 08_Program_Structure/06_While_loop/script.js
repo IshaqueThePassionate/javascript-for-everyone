@@ -1,260 +1,268 @@
 
-let n = 0;
+// ==========================================
+// 1. Basic while Loop (Counting 1 to 5)
+// ==========================================
 
-while (n < 3) {
-  n++;
+let count = 1;
+
+while (count <= 5) {
+    console.log("Count is: " + count);
+    count++;
 }
 
-console.log(n);
-// Expected output: 3
+//------------------------------------------
 
+// ==========================================
+// 2. Alternative Counter Example (1 to 5)
+// ==========================================
 
-// --------------------------------------------------------------------------------------------------------------------------------
+let i = 1;
 
-
-let m = 0;
-let x = 0;
-
-while (m < 3) {
-  n++;
-  x += n;
-  console.log(m);
-  
+while (i <= 5) {
+    console.log(i);
+    i++;
 }
 
-// --------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------
 
+// ==========================================
+// 3. User Input Validation
+// ==========================================
 
-// Example : Sum of Only Positive Numbers
+let userInput;
 
-let num = 0, sum = 0;
-
-// loop as long as num is 0 or positive
-while (num >= 0) {
-
-    // add all positive numbers
-    sum += num;
-
-    // take input from the user
-  num = parseInt(prompt("Enter a number: "));
+while (userInput !== "yes") {
+    userInput = prompt("Do you want to continue? Type 'yes' to proceed.");
 }
 
-// last, display sum
-console.log(`The sum is ${sum}`);
+console.log("Thank you for confirming!");
 
-// Output
+//------------------------------------------
 
-// Enter a number: 2
-// Enter a number: 4
-// Enter a number: -3
-// The sum is 6
+// ==========================================
+// 4. Infinite Loop (Reference / Warning)
+// ==========================================
 
+// let infiniteIndex = 0;
+// while (infiniteIndex < 5) {
+//     console.log("This will run forever!");
+//     // infiniteIndex is never incremented
+// }
 
-// --------------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------
 
+// ==========================================
+// 5. The break Keyword
+// ==========================================
 
-// Initialize the array
+let step = 1;
 
-
-const friends = ["Ahmed", "Sara", "Zain", "Fatima", "Ali"];
-
-// Initialize the loop counter
-let i = 0;
-
-// Use while loop to iterate through the array
-while (i < friends.length) {
-    console.log(friends[i]);
-    i++; // Increment the counter
+while (step <= 5) {
+    if (step === 4) {
+        break; // Loop terminates when step reaches 4
+    }
+    console.log(step);
+    step++;
 }
 
-// // Output
+//------------------------------------------
 
-// Ahmed  
-// Sara
-// Zain
-// Fatima
-// Ali
+// ==========================================
+// 6. Favorite Movie Game (Approach 1: Condition-Based Exit)
+// ==========================================
 
-// --------------------------------------------------------------------------------------------------------------------------------
+let favrtMovie = "Avatar";
+let guessMovie = prompt("Guess My favourite Movies");
 
-
-// Initializing Last Name to Each Friend in the Array
-
-// Initialize the array of first names
-
-const friendss = ["Ahmed", "Sara", "Zain", "Fatima", "Ali"];
-
-// Initialize the loop counter
-let j = 0;
-
-// Add last name "Khan" in the loop's body and print full names
-
-while (j<friends.length) {
-    const fullName = friends[j] + " Khan"; // Combine first name with last name
-    console.log(fullName);
-    j++; // Increment the counter
+while ((guessMovie != favrtMovie) && (guessMovie != "quit")) {
+    console.log("Wrong guess!");
+    guessMovie = prompt("Guess Again");
 }
 
-// output
+if (guessMovie == favrtMovie) {
+    console.log("Congratulations! you have guessed correct");
+} else if (guessMovie == "quit") {
+    console.log("You Quited.! You tried your best. better luck next time.");
+}
 
-// Ahmed Khan
-// Sara Khan
-// Zain Khan
-// Fatima Khan
-// Ali Khan
+//------------------------------------------
 
+// ==========================================
+// 7. Favorite Movie Game (Approach 2: Using break Keyword)
+// ==========================================
 
-// --------------------------------------------------------------------------------------------------------------------------------
+let favMovie = "Avatar"; 
+let guess = prompt("Guess My favourite Movies");
 
+while (guess != favMovie) {
+    if (guess == "quit") {
+        console.log("you quited");
+        break;
+    }
+    guess = prompt("you guessed wrong try again.");
+}
 
-// Example 1. ATM Withdrawal System
+if (guess == favMovie) {
+    console.log("congratulations! You Guessed Correct.");
+}
 
-// using while statement to prompt the user for the input repetedly until they give the valid response 
-// or want be continued with transection.
+//------------------------------------------
 
-const correctPassword = "12345";
-let userPassword;
-let attempts = 0;
-let maxAttempts = 3;
+// ==========================================
+// 8. Odd Numbers: Forward & Backward (using while loop)
+// ==========================================
 
-// Password verification with limited attempts
-while (userPassword !== correctPassword) {
-    userPassword = prompt("Enter your pin Code:");
-    attempts++;
+// Forward: 1 to 15
+let oddForward = 1;
+while (oddForward <= 15) {
+    console.log(oddForward);
+    oddForward += 2;
+}
+
+// Backward: 15 down to 1
+let oddBackward = 15;
+while (oddBackward >= 1) {
+    console.log(oddBackward);
+    oddBackward -= 2;
+}
+
+//------------------------------------------
+
+// ==========================================
+// 9. Even Numbers: Forward & Backward (using while loop)
+// ==========================================
+
+// Forward: 2 to 10
+let evenForward = 2;
+while (evenForward <= 10) {
+    console.log(evenForward);
+    evenForward += 2;
+}
+
+// Backward: 10 down to 2
+let evenBackward = 10;
+while (evenBackward >= 2) {
+    console.log(evenBackward);
+    evenBackward -= 2;
+}
+
+//------------------------------------------
+
+// ==========================================
+// 10. Multiplication Tables (using while loop)
+// ==========================================
+
+// Fixed: Multiples of 5
+let tableFive = 5;
+while (tableFive <= 50) {
+    console.log(tableFive);
+    tableFive += 5;
+}
+
+// Dynamic: User Input Table
+let n = prompt("enter your number");
+n = parseInt(n);
+
+let tableIndex = n;
+while (tableIndex <= n * 10) {
+    console.log(tableIndex);
+    tableIndex += n;
+}
+
+//------------------------------------------
+
+// ==========================================
+// 11. Loops with Arrays: Forward & Backward (using while loop)
+// ==========================================
+
+let fruits = ["apple", "mango", "litchi", "papaya", "banana"];
+fruits.push("amrood");
+
+// Forward loop with array
+let fIndex = 0;
+while (fIndex < fruits.length) {
+    console.log(fIndex, fruits[fIndex]);
+    fIndex++;
+}
+
+// Backward loop with array
+let bIndex = fruits.length - 1;
+while (bIndex >= 0) {
+    console.log(bIndex, fruits[bIndex]);
+    bIndex--;
+}
+
+//------------------------------------------
+
+// ==========================================
+// 12. Nested Loops & Nested Arrays (using while loop)
+// ==========================================
+
+// Coordinate Iterations (i and j)
+let outer = 1;
+while (outer <= 3) {
+    let inner = 1;
+    while (inner <= 3) {
+        console.log(`i = ${outer}, j = ${inner}`);
+        inner++;
+    }
+    outer++;
+}
+
+// Nested Arrays (Heroes)
+let heroes = [
+    ["Ironman", "superman", "spiderman", "thor"],
+    ["superman", "superwoman", "flash"]
+];
+
+let heroRow = 0;
+while (heroRow < heroes.length) {
+    console.log(heroRow, heroes[heroRow]);
+
+    let heroCol = 0;
+    while (heroCol < heroes[heroRow].length) {
+        console.log(`j=${heroCol} ${heroes[heroRow][heroCol]}`);
+        heroCol++;
+    }
+    heroRow++;
+}
+
+//------------------------------------------
+
+// ==========================================
+// 13. Practical Project: Todo App (Console/Prompt Based)
+// ==========================================
+
+let todo = [];
+let req = prompt("enter your request");
+
+while (true) {
+    if (req === "quit") {
+        console.log("you are quitting the app");
+        break;
+    }
     
-    if (userPassword !== correctPassword) {
-        if (attempts >= maxAttempts) {
-            console.log("Too many incorrect attempts. Access denied.");
-            break; // Exit if user exceeds max attempts
-        } else {
-            console.log("Incorrect password. Try again.");
+    if (req === "list") {
+        console.log("=====list of the items====");
+        let listIndex = 0;
+        while (listIndex < todo.length) {
+            console.log(listIndex, todo[listIndex]);
+            listIndex++;
         }
-    }
-}
-
-// Continue if password is correct and user hasn't exceeded attempts
-if (userPassword === correctPassword) {
-    console.log("Access granted!");
-    
-    let balance = 1000; // Initial balance
-    let withdrawAmount;
-
-    // ATM withdrawal system
-    while (balance > 0) {
-        withdrawAmount = parseFloat(prompt(`Your current balance is $${balance}. Enter amount to withdraw:`));
-        
-        if (withdrawAmount <= balance) {
-            balance -= withdrawAmount;  // Deduct the withdraw amount from balance
-            console.log(`You withdrew $${withdrawAmount}. Your new balance is $${balance}.`);
-        } else {
-            console.log(`Insufficient funds! You cannot withdraw more than $${balance}.`);
-        }
-
-        if (balance === 0) {
-            console.log("Your balance is zero. You cannot withdraw any more.");
-            break;
-        }
-        
-        const continueWithdrawal = prompt("Do you want to withdraw more? (yes/no)").toLowerCase();
-        if (continueWithdrawal !== 'yes') {
-            console.log("Transaction complete. Thank you for using the ATM.");
-            break;
-        }
-    }
-}
-
-// -------------------------------------------------------------------------------------------------------------------------------
-
-
-// Example 2. Shopping Cart System
-
-// In this example, the user can keep adding items to their shopping cart until they decide to checkout.
-
-let shoppingCart = [];
-let continueShopping = true;
-
-while (continueShopping) {
-    let item = prompt("Enter the item you want to add to your cart:");
-    shoppingCart.push(item);  // Add the item to the cart
-
-    let moreItems = prompt("Do you want to add more items? (yes/no)").toLowerCase();
-
-    if (moreItems !== 'yes') {
-        continueShopping = false;  // Exit the loop if user says 'no'
-    }
-}
-
-console.log("Here are the items in your cart:");
-shoppingCart.forEach((item, index) => {
-    console.log(`${index + 1}. ${item}`);
-});
-
-// -------------------------------------------------------------------------------------------------------------------------------
-
-
-// Example 3. Data Entry for Employee Records
-
-// This loop allows the HR department to enter employee information continuously, until they choose to stop.
-
-let employees = [];
-let addMore = true;
-
-while (addMore) {
-    let name = prompt("Enter employee name:");
-    let age = prompt("Enter employee age:");
-    let position = prompt("Enter employee position:");
-
-    // Store the employee's details
-    employees.push({
-        name: name,
-        age: age,
-        position: position
-    });
-
-    // Ask if they want to add another employee
-    let moreEmployees = prompt("Do you want to add another employee? (yes/no)").toLowerCase();
-    if (moreEmployees !== 'yes') {
-        addMore = false;
-    }
-}
-
-console.log("Employee Records:");
-employees.forEach((employee, index) => {
-    console.log(`${index + 1}. ${employee.name}, Age: ${employee.age}, Position: ${employee.position}`);
-});
-
-// -------------------------------------------------------------------------------------------------------------------------------
-
-
-// Example 4. Bus Ticket Booking System
-
-// In this example, users can continue booking bus tickets until they choose to stop.
-
-let availableSeats = 10;  // Example bus with 10 available seats
-let ticketsBooked = 0;
-
-while (availableSeats > 0) {
-    let seatsToBook = parseInt(prompt(`There are ${availableSeats} seats available. How many would you like to book?`));
-
-    if (seatsToBook <= availableSeats) {
-        availableSeats -= seatsToBook;
-        ticketsBooked += seatsToBook;
-        console.log(`You have successfully booked ${seatsToBook} seats. ${availableSeats} seats remaining.`);
+        console.log("==========================");
+    } else if (req === "add") {
+        let task = prompt("please enter the task you wanna add");
+        todo.push(task);
+        console.log("task added");
+    } else if (req === "delete") {
+        let indx = prompt("enter the task index you wanna delete");
+        todo.splice(indx, 1);
+        console.log("task deleted");
     } else {
-        console.log(`Sorry, we don't have that many seats available. Only ${availableSeats} seats left.`);
+        console.log("wrong request, please try again");
     }
 
-    if (availableSeats === 0) {
-        console.log("All seats are booked.");
-        break;
-    }
-
-    let moreBookings = prompt("Do you want to book more tickets? (yes/no)").toLowerCase();
-    if (moreBookings !== 'yes') {
-        console.log("Thank you for using the ticket booking system.");
-        break;
-    }
+    req = prompt("please enter your request");
 }
 
-console.log(`You booked a total of ${ticketsBooked} tickets.`);
 
