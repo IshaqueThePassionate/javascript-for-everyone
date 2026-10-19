@@ -1,23 +1,16 @@
 
 // Primitive Values
 
-let number = 42;              // Number
-let name = "Alice";           // String
-let isActive = true;          // Boolean
-let nothing = null;           // Null
-let unassigned;               // Undefined
+let x = 10;
+let y = x; // Makes an independent copy
+
+y = 20;
+
+console.log(x); // 10 (untouched)
+console.log(y); // 20
 
 
 
-// Reference Values
+let score = 100;
+let greeting = "Welcome";
 
-
-let person = { name: "John", age: 30 };  // Object
-let numbers = [1, 2, 3, 4];              // Array
-function greet() {                       // Function
-    console.log("Hello!");
-}
-
-
-
-let uniqueSymbol = Symbol("id");         // Symbol
