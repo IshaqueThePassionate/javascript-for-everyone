@@ -1,577 +1,884 @@
-# JavaScript Functions: Declarations, Expressions, and Callbacks 📚
+# JavaScript Functions: Declarations, Scope, and Advanced Concepts
 
-JavaScript functions are fundamental building blocks that allow you to encapsulate reusable code, perform operations, and manage complex tasks efficiently. This README provides a comprehensive overview of JavaScript functions, including function declarations, function expressions, and their use in callbacks.
-
----
-
-## What Are Functions in JavaScript?
-
-Functions in JavaScript are blocks of code designed to perform particular tasks. They can be defined once and executed multiple times, promoting code reusability and modularity. Functions can accept inputs (parameters) and can return outputs (return values).
+A comprehensive and beginner-friendly reference guide covering core JavaScript function fundamentals: Function Declarations, Arguments & Parameters, Return statements, Scope types (Global, Function, Block, Lexical), Function Expressions, Higher-Order Functions, Methods, and Anonymous Functions.
 
 ---
 
-## Function Declarations
+## Table of Contents
+- [What Are Functions?](#what-are-functions)
+- [1. Function Declarations](#1-function-declarations)
+  - [Syntax & Hoisting](#syntax--hoisting)
+  - [Easy Examples (Declarations)](#easy-examples-declarations)
+  - [Course Slide Examples (Declarations)](#course-slide-examples-declarations)
+  - [Practice Question 1: Roll a Dice](#practice-question-1-roll-a-dice)
+- [2. Functions with Arguments & Parameters](#2-functions-with-arguments--parameters)
+  - [Parameters vs. Arguments](#parameters-vs-arguments)
+  - [Easy Examples (Arguments)](#easy-examples-arguments)
+  - [Course Slide Example: Print User Info](#course-slide-example-print-user-info)
+- [3. The `return` Keyword](#3-the-return-keyword)
+  - [How Return Works](#how-return-works)
+  - [Execution Stops at Return](#execution-stops-at-return)
+  - [Storing the Return Value in a Variable](#storing-the-return-value-in-a-variable)
+  - [Returning Undefined](#returning-undefined)
+  - [Easy Examples (Return Statement)](#easy-examples-return-statement)
+- [Practice Questions (Return Statement)](#practice-questions-return-statement)
+  - [Practice Question 2: Sum from 1 to N (`getSum`)](#practice-question-2-sum-from-1-to-n-getsum)
+  - [Practice Question 3: Concatenate Array of Strings (`concat`)](#practice-question-3-concatenate-array-of-strings-concat)
+- [4. Scope in JavaScript](#4-scope-in-javascript)
+  - [What is Scope? (Global vs Function Scope)](#what-is-scope-global-vs-function-scope)
+  - [Block Scope](#block-scope)
+  - [Lexical Scope](#lexical-scope)
+  - [Practice Question 7: Lexical Scope Output Tracing](#practice-question-7-lexical-scope-output-tracing)
+- [5. Function Expressions](#5-function-expressions)
+- [6. Higher-Order Functions](#6-higher-order-functions)
+  - [Higher-Order Functions: Taking Functions as Arguments](#higher-order-functions-taking-functions-as-arguments)
+  - [Higher-Order Functions: Returning a Function](#higher-order-functions-returning-a-function)
+- [7. Methods (Functions inside Objects)](#7-methods-functions-inside-objects)
+- [8. Anonymous Functions](#8-anonymous-functions)
+  - [Assigning to Variables](#assigning-to-variables)
+  - [Using as Simple Callbacks](#using-as-simple-callbacks)
+- [Why Functions Are Special in JavaScript](#why-functions-are-special-in-javascript)
+- [Conclusion](#conclusion)
 
-### Syntax
+---
 
-Function declarations define a function with the specified parameters. They are hoisted, meaning they can be called before they are defined in the code.
+## What Are Functions?
+
+A function is a reusable block of code designed to perform a specific task[cite: 12]. Instead of rewriting the same lines multiple times, functions allow you to write logic once and execute it whenever needed across your application.
+
+---
+
+## 1. Function Declarations
+
+A function declaration defines a named function using the `function` keyword followed by a unique name, parentheses `()`, and curly brackets `{}`[cite: 6].
+
+### Syntax & Hoisting
 
 ```javascript
-function functionName(parameters) {
-    // function body
+function funcName() {
+    // code to execute
+}
+
+// Function Call / Invocation
+funcName();
+```
+
+> **Hoisting Concept:** Function declarations are hoisted to the top of their scope. This means you can call them even before the line where they are written:
+
+```javascript
+sayHi(); // Output: Hi!
+
+function sayHi() {
+    console.log("Hi!");
 }
 ```
 
-### Examples
+---
 
+### Easy Examples (Declarations)
+
+#### Example A: Simple Welcome Message
 ```javascript
-// Function Declaration
-function greet(name) {
-    console.log(`Hello, ${name}!`);
+function showWelcomeMessage() {
+    console.log("Welcome to JavaScript learning!");
+    console.log("Keep practicing every day.");
 }
 
-// Calling the function
-greet("Aisha"); // Output: Hello, Aisha!
+showWelcomeMessage();
 ```
 
-**Key Points:**
+#### Example B: Print Even Numbers from 2 to 10
+```javascript
+function printEvenNumbers() {
+    for (let i = 2; i <= 10; i += 2) {
+        console.log(i);
+    }
+}
 
-- **Hoisting:** Function declarations are hoisted to the top of their scope, allowing them to be called before their actual definition.
-  
-  ```javascript
-  greet("Bilal"); // Output: Hello, Bilal!
+printEvenNumbers();
+```
 
-  function greet(name) {
-      console.log(`Hello, ${name}!`);
-  }
-  ```
+#### Example C: Check Light Switch Status
+```javascript
+function checkLight() {
+    let isLightOn = true;
+    if (isLightOn) {
+        console.log("The room is bright.");
+    } else {
+        console.log("The room is dark.");
+    }
+}
 
-- **Reusability:** Functions can be called multiple times with different arguments.
+checkLight();
+```
 
+---
 
-## Storing return Value in a variable
+### Course Slide Examples (Declarations)
 
-In JavaScript, the **return value** of a function is passed back to the point where the function is called. When you assign a function call to a variable, like in your example, the variable stores the value returned by that function. This is how the variable `value` is receiving the return value `"ishaque"`.
+#### Example 1: Basic Hello Function
+```javascript
+function hello() {
+    console.log("hello");
+}
 
-### Step-by-step breakdown:
+hello(); // Output: hello
+```
+[cite: 6]
 
-1. **Function call**:
-   When you call `introduceMe()`, the function executes, logs two messages to the console, and hits the `return "ishaque"` statement.
+#### Example 2: Printing Multiple Lines
+```javascript
+function printName() {
+    console.log("apna college");
+    console.log("shradha khapra");
+}
 
-2. **Return value**:
-   The `return` statement sends the value `"ishaque"` back to where the function was called.
+printName();
+```
+[cite: 6]
 
-3. **Assign to variable**:
-   The function call `introduceMe()` is assigned to the variable `value`. This means `value` now holds the string `"ishaque"`, which is the result of the function.
+#### Example 3: Function with a Loop (Print 1 to 5)
+```javascript
+function print1to5() {
+    for (let i = 1; i <= 5; i++) {
+        console.log(i);
+    }
+}
 
-### Code flow:
+print1to5();
+```
+[cite: 6]
+
+#### Example 4: Function with Conditional Statement
+```javascript
+function isAdult() {
+    let age = 18;
+    if (age >= 18) {
+        console.log("adult");
+    } else {
+        console.log("not adult");
+    }
+}
+
+isAdult(); // Output: adult
+```
+[cite: 7]
+
+---
+
+### Practice Question 1: Roll a Dice
+
+**Task:** Create a function to roll a 6-sided dice and always display the rolled value (from 1 to 6)[cite: 8].
+
+```javascript
+function rollDice() {
+    let rand = Math.floor(Math.random() * 6) + 1;
+    console.log(rand);
+}
+
+// Testing the dice roll
+rollDice();
+rollDice();
+rollDice();
+rollDice();
+```
+[cite: 9]
+
+---
+
+## 2. Functions with Arguments & Parameters
+
+Arguments allow you to pass dynamic data into your functions, customizing how they run each time[cite: 10].
+
+```javascript
+function funcName(arg1, arg2) {
+    // perform actions using arg1 and arg2
+}
+```
+[cite: 10]
+
+### Parameters vs. Arguments
+- **Parameters:** The placeholder names declared in the function definition header (e.g., `name`, `age`)[cite: 11].
+- **Arguments:** The real, actual values passed into the function call (e.g., `"shradha"`, `23`)[cite: 11].
+
+---
+
+### Easy Examples (Arguments)
+
+#### Example A: Multiply Two Numbers
+```javascript
+function multiply(num1, num2) {
+    console.log(`Product: ${num1 * num2}`);
+}
+
+multiply(4, 5); // Output: Product: 20
+```
+
+#### Example B: Check Even or Odd Number
+```javascript
+function checkEvenOdd(num) {
+    if (num % 2 === 0) {
+        console.log(`${num} is Even`);
+    } else {
+        console.log(`${num} is Odd`);
+    }
+}
+
+checkEvenOdd(7);  // Output: 7 is Odd
+checkEvenOdd(12); // Output: 12 is Even
+```
+
+#### Example C: Custom Personalized Greeting
+```javascript
+function greetUser(username, role) {
+    console.log(`Hello ${username}, you are logged in as ${role}.`);
+}
+
+greetUser("Ali", "Admin");   // Output: Hello Ali, you are logged in as Admin.
+greetUser("Sara", "Student"); // Output: Hello Sara, you are logged in as Student.
+```
+
+---
+
+### Course Slide Example: Print User Info
+
+```javascript
+function printInfo(name, age) {
+    console.log(`${name}'s age is ${age}.`);
+}
+
+printInfo("shradha", 23); // Output: shradha's age is 23.
+printInfo("rajat", 19);   // Output: rajat's age is 19.
+```
+[cite: 11]
+
+---
+
+## 3. The `return` Keyword
+
+The `return` statement sends a computed value back out of the function to the point where it was invoked[cite: 12].
+
+$$\text{Input (Arguments)} \longrightarrow \mathbf{Function} \longrightarrow \text{Output (Return Value)}$$
+[cite: 12]
+
+```javascript
+function funcName(arg1, arg2) {
+    // do calculations
+    return val;
+}
+```
+[cite: 12]
+
+---
+
+### How Return Works
+
+```javascript
+function sum(a, b) {
+    return a + b;
+}
+
+let total = sum(3, 4);
+console.log(total); // Output: 7
+```
+
+---
+
+### Execution Stops at Return
+
+The moment JavaScript hits a `return` statement, the function immediately terminates[cite: 13]. Any lines written below it inside that function are unreachable[cite: 13]:
+
+```javascript
+function sum(a, b) {
+    console.log("hello");
+    console.log("hello");
+    return a + b; // Execution stops here!
+    console.log("hello2"); // Will never run
+    console.log("hello2"); // Will never run
+}
+
+console.log(sum(1, 2));
+```
+[cite: 13]
+
+**Output:**
+```text
+hello
+hello
+3
+```
+
+---
+
+### Storing the Return Value in a Variable
+
+A function call evaluates to its returned value. You can assign it to a variable:
 
 ```javascript
 function introduceMe() {
     console.log("my name is ishaque");
     console.log("and i am a web developer");
-    return "ishaque";  // Return value is sent here
+    return "ishaque";
 }
 
-let value = introduceMe();  // "ishaque" is returned and stored in 'value'
-console.log(value);  // Output: "ishaque"
+let value = introduceMe();
+console.log(value); // Output: "ishaque"
 ```
 
-### Explanation:
-- Although the **body of the function** is a separate scope, the **`return` statement** allows the function to send a value back to the calling scope. That’s why `value` holds the return value, even though it’s outside the function's body.
+---
 
-<br>
+### Returning Undefined
 
-### Functions with Parameters
-
-Functions can take one or more parameters, which are values you can pass to the function to customize its behavior.
-
-#### Example: Function with Parameters
+If a function has no `return` statement, or uses `return;` without any value, it automatically returns `undefined`:
 
 ```javascript
-function greet(name) {
-  console.log("Hello, " + name + "!");
-}
-
-greet("Alice"); // Output: Hello, Alice!
-greet("Bob");   // Output: Hello, Bob!
-```
-
-In this example, the `greet` function takes one parameter, `name`, and prints a personalized greeting.
-
-<br>
-
-### Functions with Return Values
-
-Functions can return a value using the `return` statement. This allows the function to produce an output that can be used elsewhere in your code.
-
-#### Example: Function with a Return Value
-
-```javascript
-function add(a, b) {
-  return a + b;
-}
-
-let sum = add(3, 4);
-console.log(sum); // Output: 7
-```
-
-In this example, the `add` function takes two parameters, `a` and `b`, and returns their sum. The result is stored in the `sum` variable and printed to the console.
-
-<br>
-
-## Returning Values from Functions
-
-Some functions, like `roundTo` and `square`, return a value. Others, like `makeNoise`, do not return a value but instead perform a side effect (e.g., logging to the console). The `return` statement is used to return a value from a function. When encountered, the function execution stops, and the specified value is returned.
-
-- If a `return` statement is used without an expression, the function returns `undefined`.
-- Functions without a `return` statement also return `undefined`.
-
-### Example: Returning Undefined
-
-```javascript
-const doNothing = function() {
+function doNothing() {
     return;
-};
+}
 
-console.log(doNothing());
-// → undefined
+console.log(doNothing()); // Output: undefined
 ```
 
-#### Explanation:
+---
 
-- `const doNothing = function() { return; };`: Defines a function `doNothing` that returns `undefined` because the `return` statement has no expression.
-- `console.log(doNothing());`: Calls the `doNothing` function, which returns and logs `undefined`.
+### Easy Examples (Return Statement)
 
-<br>
-
-### Example: Square Function
-
-This example defines a function `square` that returns the square of a given number:
-
+#### Example A: Calculate Average of Three Numbers
 ```javascript
-const square = function(x) {
-    return x * x;
-};
+function calculateAverage(a, b, c) {
+    let avg = (a + b + c) / 3;
+    return avg;
+}
 
-console.log(square(12));
-// → 144
+let resultAvg = calculateAverage(10, 20, 30);
+console.log("Average is:", resultAvg); // Output: Average is: 20
 ```
 
-#### Explanation:
-
-- `const square = function(x) { return x * x; };`: Defines a function `square` that takes one parameter `x` and returns the square of `x`.
-- `console.log(square(12));`: Calls the `square` function with the argument `12` and logs the result, which is `144`.
-
-
-
-### Example: makeNoise Function
-
-This example defines a function `makeNoise` that logs a sound to the console:
-
+#### Example B: Find Maximum of Two Numbers
 ```javascript
-const makeNoise = function() {
-    console.log("Pling!");
-};
+function findMax(num1, num2) {
+    if (num1 > num2) {
+        return num1;
+    } else {
+        return num2;
+    }
+}
 
-makeNoise();
-// → Pling!
+let maxNum = findMax(45, 80);
+console.log("Greater number is:", maxNum); // Output: Greater number is: 80
 ```
 
-#### Explanation:
-
-- `const makeNoise = function() { console.log("Pling!"); };`: Defines a function `makeNoise` that takes no parameters and logs "Pling!" to the console.
-- `makeNoise();`: Calls the `makeNoise` function, resulting in the log output.
-
-
-<!-- =============================================================================================================== -->
-
-
-## Function Expressions
-
-### What Are Function Expressions?
-
-Function expressions in JavaScript allow you to define a function and assign it to a variable. Unlike function declarations, function expressions are not hoisted, meaning they cannot be used before their definition.
-
-**Syntax:**
-
+#### Example C: Convert Minutes to Seconds
 ```javascript
-const functionName = function(parameters) {
-    // function body
-};
+function minutesToSeconds(minutes) {
+    return minutes * 60;
+}
+
+let totalSeconds = minutesToSeconds(5);
+console.log("Total seconds:", totalSeconds); // Output: Total seconds: 300
 ```
 
-### Why Use Function Expressions in Callbacks?
+---
 
-Function expressions are particularly useful in callbacks for several reasons:
+## Practice Questions (Return Statement)
 
-1. **Inline Functionality:** You can define functions directly where they’re needed.
-2. **Flexibility:** They can be anonymous or named based on the context.
-3. **Scoped Behavior:** They don’t pollute the global namespace.
-4. **Dynamic Customization:** You can create unique behavior for each callback.
+### Practice Question 2: Sum from 1 to N (`getSum`)
 
-### How to Use Function Expressions in Callbacks?
-
-A callback is a function passed as an argument to another function. Function expressions work seamlessly as callbacks, whether named or anonymous.
-
-### Examples
-
-#### Named Function Expression
+**Task:** Create a function that takes an integer `n` as an argument and returns the sum of all numbers from `1` to `n`.
 
 ```javascript
-// Function Expression
+function getSum(n) {
+    let sum = 0;
+
+    for (let i = 1; i <= n; i++) {
+        sum += i;
+    }
+
+    return sum;
+}
+
+console.log(getSum(5));  // Output: 15 (1 + 2 + 3 + 4 + 5)
+console.log(getSum(10)); // Output: 55
+```
+
+
+---
+
+### Practice Question 3: Concatenate Array of Strings (`concat`)
+
+**Task:** Create a function that takes an array of strings and returns a single concatenated string containing all elements combined.
+
+```javascript
+let str = ["hi", "hello", "bye", "!"];
+
+function concat(str) {
+    let result = "";
+
+    for (let i = 0; i < str.length; i++) {
+        result += str[i];
+    }
+
+    return result;
+}
+
+console.log(concat(str)); // Output: "hihellobye!"
+```
+
+
+---
+
+## 4. Scope in JavaScript
+
+Scope defines the accessibility (visibility) of variables in different parts of your code.
+
+### What is Scope? (Global vs Function Scope)
+
+- **Global Scope:** Variables declared outside any function can be accessed anywhere in your code.
+- **Function Scope:** Variables declared inside a function cannot be accessed from outside that function.
+
+#### Example 1 (Easy): Basic Function Scope
+```javascript
+let appName = "TodoApp"; // Global
+
+function showApp() {
+    let version = "1.0.0"; // Function Scope
+    console.log(appName);  // Accessible: TodoApp
+    console.log(version);  // Accessible: 1.0.0
+}
+
+showApp();
+// console.log(version); // ReferenceError: version is not defined
+```
+
+#### Example 2 (Medium): Overriding Global Variables (Shadowing)
+```javascript
+let totalMarks = 100; // Global
+
+function updateMarks() {
+    let totalMarks = 85; // Local variable shadows global variable
+    console.log("Local Marks:", totalMarks); // Output: 85
+}
+
+updateMarks();
+console.log("Global Marks:", totalMarks); // Output: 100 (Unchanged)
+```
+
+#### Example 3 (Advance): Multiple Functions Scope Isolation
+```javascript
+let balance = 1000;
+
+function credit() {
+    let bonus = 200;
+    balance += bonus;
+}
+
+function debit() {
+    let penalty = 50;
+    balance -= penalty;
+    // console.log(bonus); // ReferenceError: bonus is isolated to credit()
+}
+
+credit();
+debit();
+console.log("Remaining Balance:", balance); // Output: 1150
+```
+
+---
+
+### Block Scope
+
+Variables declared using `let` and `const` inside `{}` braces are limited only to that block. Variables declared with `var` do not respect block boundaries.
+
+#### Example 1 (Easy): `if` Statement Block
+```javascript
+let condition = true;
+
+if (condition) {
+    let insideVal = 25;
+    console.log(insideVal); // Output: 25
+}
+
+// console.log(insideVal); // ReferenceError: insideVal is not defined
+```
+
+#### Example 2 (Medium): `for` Loop Block Scope
+```javascript
+for (let i = 1; i <= 3; i++) {
+    let stepName = `Step-${i}`;
+    console.log(stepName);
+}
+
+// console.log(i);        // ReferenceError: i is not defined
+// console.log(stepName); // ReferenceError: stepName is not defined
+```
+
+#### Example 3 (Advance): Comparing `let` and `var` in Blocks
+```javascript
+{
+    let blockedLet = "Hidden";
+    const blockedConst = "Locked";
+    var leakedVar = "I escaped!";
+}
+
+console.log(leakedVar); // Output: "I escaped!" (var leaks out of block)
+// console.log(blockedLet);   // ReferenceError
+// console.log(blockedConst); // ReferenceError
+```
+
+---
+
+### Lexical Scope
+
+Lexical scope means that an inner nested function has full access to the variables defined in its parent (outer) function.
+
+#### Example 1 (Easy): Basic Nested Function Access
+```javascript
+function outer() {
+    let city = "Jacobabad";
+
+    function inner() {
+        console.log("City is:", city); // Accessible from outer scope
+    }
+
+    inner();
+}
+
+outer(); // Output: City is: Jacobabad
+```
+
+#### Example 2 (Medium): Multi-Level Nested Lexical Access
+```javascript
+function grandParent() {
+    let surname = "Ishaque";
+
+    function parent() {
+        let middle = "Ali";
+
+        function child() {
+            let first = "Hamza";
+            console.log(`${first} ${middle} ${surname}`);
+        }
+
+        child();
+    }
+
+    parent();
+}
+
+grandParent(); // Output: Hamza Ali Ishaque
+```
+
+#### Example 3 (Advance): Outer Cannot Access Inner (One-Way Street)
+```javascript
+function department() {
+    let deptName = "Computer Science";
+
+    function lab() {
+        let computers = 40;
+        console.log(`Department: ${deptName}, Systems: ${computers}`);
+    }
+
+    lab();
+    // console.log(computers); // ReferenceError: outer function cannot look inwards!
+}
+
+department();
+```
+
+---
+
+### Practice Question 7: Lexical Scope Output Tracing
+
+**Problem:** Predict the output of the following nested function code:
+
+```javascript
+let greet = "hello"; // Global Scope
+
+function changeGreet() {
+    let greet = "namaste"; // Function Scope (Outer)
+    console.log(greet);
+
+    function innerGreet() {
+        console.log(greet); // Refers to the closest outer lexical scope
+    }
+
+    innerGreet();
+}
+
+console.log(greet);
+changeGreet();
+```
+
+**Output:**
+```text
+hello
+namaste
+namaste
+```
+
+**Explanation:**
+1. The first `console.log(greet)` refers to the global variable `"hello"`.
+2. Inside `changeGreet()`, a local `greet` variable is created with the value `"namaste"`.
+3. `innerGreet()` does not have its own `greet`, so it looks up lexically to its parent function `changeGreet()` and prints `"namaste"`.
+
+---
+
+## 5. Function Expressions
+
+A function expression defines a function and stores it inside a variable. Function expressions are **not hoisted**—you cannot call them before the line on which they are declared.
+
+#### Example 1 (Easy): Basic Math Addition
+```javascript
+const addNumbers = function(a, b) {
+    return a + b;
+};
+
+console.log(addNumbers(10, 20)); // Output: 30
+```
+
+#### Example 2 (Medium): String Formatter Expression
+```javascript
+const formatUser = function(name, role) {
+    return `Username: ${name.toUpperCase()} | Status: [${role}]`;
+};
+
+console.log(formatUser("ishaque", "Student")); 
+// Output: Username: ISHAQUE | Status: [Student]
+```
+
+#### Example 3 (Advance): Array Filter using Function Expression
+```javascript
+const filterEvens = function(arr) {
+    let evens = [];
+    for (let num of arr) {
+        if (num % 2 === 0) {
+            evens.push(num);
+        }
+    }
+    return evens;
+};
+
+let numbersList = [1, 2, 3, 4, 5, 6, 7, 8];
+console.log(filterEvens(numbersList)); // Output: [2, 4, 6, 8]
+```
+
+---
+
+## 6. Higher-Order Functions
+
+A **Higher-Order Function** is a function that either takes another function as an argument, or returns a function.
+
+### Higher-Order Functions: Taking Functions as Arguments
+
+#### Example 1 (Easy): Repeat Action Multiple Times
+```javascript
+function greet() {
+    console.log("Welcome!");
+}
+
+function repeatAction(actionFunc, count) {
+    for (let i = 0; i < count; i++) {
+        actionFunc(); // Running passed function
+    }
+}
+
+repeatAction(greet, 3);
+```
+
+#### Example 2 (Medium): Passing Math Operations Dynamically
+```javascript
+function add(x, y) {
+    return x + y;
+}
+
+function multiply(x, y) {
+    return x * y;
+}
+
+function calculate(operatorFunc, a, b) {
+    return operatorFunc(a, b);
+}
+
+console.log(calculate(add, 10, 5));      // Output: 15
+console.log(calculate(multiply, 10, 5)); // Output: 50
+```
+
+#### Example 3 (Advance): Custom Array Transformer (Like `map`)
+```javascript
+function transformArray(array, operation) {
+    let result = [];
+    for (let item of array) {
+        result.push(operation(item));
+    }
+    return result;
+}
+
+function squareNum(n) {
+    return n * n;
+}
+
+let nums = [2, 3, 4];
+console.log(transformArray(nums, squareNum)); // Output: [4, 9, 16]
+```
+
+---
+
+### Higher-Order Functions: Returning a Function
+
+#### Example 1 (Easy): Simple Greeter Generator
+```javascript
+function createGreeting(greetingWord) {
+    return function(name) {
+        console.log(`${greetingWord}, ${name}!`);
+    };
+}
+
+let sayHi = createGreeting("Hi");
+sayHi("Ishaque"); // Output: Hi, Ishaque!
+```
+
+#### Example 2 (Medium): Course Slide Factory (`oddOrEvenFactory`)
+```javascript
+function oddOrEvenFactory(request) {
+    if (request === "odd") {
+        return function(n) {
+            console.log(!(n % 2 === 0));
+        };
+    } else if (request === "even") {
+        return function(n) {
+            console.log(n % 2 === 0);
+        };
+    } else {
+        console.log("wrong request");
+    }
+}
+
+let checkEven = oddOrEvenFactory("even");
+checkEven(10); // Output: true
+checkEven(7);  // Output: false
+```
+
+#### Example 3 (Advance): Multiplier Factory
+```javascript
+function makeMultiplier(factor) {
+    return function(number) {
+        return number * factor;
+    };
+}
+
+const double = makeMultiplier(2);
+const triple = makeMultiplier(3);
+
+console.log(double(15)); // Output: 30
+console.log(triple(15)); // Output: 45
+```
+
+---
+
+## 7. Methods (Functions inside Objects)
+
+When a function is stored as a property of an object, it is called a **Method**.
+
+#### Example 1 (Easy): Basic Greeting Method
+```javascript
+const person = {
+    name: "Ishaque",
+    sayHello: function() {
+        console.log("Hello from inside the object!");
+    }
+};
+
+person.sayHello(); // Output: Hello from inside the object!
+```
+
+#### Example 2 (Medium): Math Calculator with Methods
+```javascript
+const calculator = {
+    add: function(a, b) {
+        return a + b;
+    },
+    sub: function(a, b) {
+        return a - b;
+    },
+    mul: function(a, b) {
+        return a * b;
+    }
+};
+
+console.log(calculator.add(10, 5)); // Output: 15
+console.log(calculator.mul(6, 4));  // Output: 24
+```
+
+#### Example 3 (Advance): Modern Shorthand Syntax & State Action
+```javascript
+const bankAccount = {
+    holder: "Muhammad Ishaque",
+    balance: 5000,
+
+    // Shorthand method syntax
+    deposit(amount) {
+        this.balance += amount;
+        return `Deposited ${amount}. New Balance: ${this.balance}`;
+    },
+    withdraw(amount) {
+        if (amount > this.balance) {
+            return "Insufficient funds!";
+        }
+        this.balance -= amount;
+        return `Withdrew ${amount}. Remaining: ${this.balance}`;
+    }
+};
+
+console.log(bankAccount.deposit(1500));  // Output: Deposited 1500. New Balance: 6500
+console.log(bankAccount.withdraw(2000)); // Output: Withdrew 2000. Remaining: 4500
+```
+
+---
+
+## 8. Anonymous Functions
+
+An **Anonymous Function** is simply a function without a name identifier.
+
+### Assigning to Variables
+```javascript
 const greet = function(name) {
-    console.log(`Hello, ${name}!`);
+    return `Hello, ${name}!`;
 };
 
-// Higher-Order Function
-function processUserInput(callback) {
-    const name = "Sara";
-    callback(name); // Passing 'greet' function as a callback
-}
-
-// Using Function Expression as Callback
-processUserInput(greet);
+console.log(greet("Aisha")); // Output: Hello, Aisha!
 ```
 
-**Output:**
-
-```
-Hello, Sara!
-```
-
-**Explanation:**
-
-1. The `greet` function is a named function expression.
-2. It is passed as an argument to the `processUserInput` function and executed later.
-
-#### Anonymous Function Expression
+### Using as Simple Callbacks
+Anonymous functions are frequently used as one-time arguments passed into timers or array helpers:
 
 ```javascript
-// Higher-Order Function
-function processUserInput(callback) {
-    const name = "Ahmed";
-    callback(name); // Executes the passed function
-}
-
-// Using Anonymous Function Expression as Callback
-processUserInput(function(name) {
-    console.log(`Hi, ${name}! Welcome!`);
-});
-```
-
-**Output:**
-
-```
-Hi, Ahmed! Welcome!
-```
-
-**Explanation:**
-
-1. An anonymous function is directly defined where it’s needed.
-2. It avoids assigning the function to a variable.
-
-#### Real-World Example 1: Event Listeners
-
-```javascript
-// Adding a click event listener with an anonymous function expression
-document.getElementById('myButton').addEventListener('click', function() {
-    alert('Button was clicked!');
-});
-```
-
-**Explanation:**
-
-- The anonymous function is defined directly within the `addEventListener` method to handle the click event.
-
-#### Real-World Example 2: Array Methods
-
-```javascript
-const numbers = [1, 2, 3, 4, 5];
-
-// Using a named function expression with the map method
-const square = function(number) {
-    return number * number;
-};
-
-const squaredNumbers = numbers.map(square);
-console.log(squaredNumbers); // [1, 4, 9, 16, 25]
-```
-
-**Explanation:**
-
-- The `square` function is a named function expression passed to the `map` method to create a new array with squared values.
-
-#### Real-World Example 3: Asynchronous Operations with File Processing
-
-```javascript
-// Simulating file processing using callbacks
-function processFile(fileName, callback) {
-    console.log(`Processing file: ${fileName}`);
-    setTimeout(function() {
-        const fileContent = `Content of ${fileName}`;
-        callback(fileContent); // Passing processed file content
-    }, 2000);
-}
-
-// Using Named Function Expression for Callback
-const displayFileContent = function(content) {
-    console.log(`File Content: ${content}`);
-};
-
-// Calling processFile with displayFileContent as a callback
-processFile("example.txt", displayFileContent);
-```
-
-**Output:**
-
-```
-Processing file: example.txt
-(File processing delay of 2 seconds)
-File Content: Content of example.txt
-```
-
-**Explanation:**
-
-1. The `displayFileContent` function is a named function expression that handles the processed file content.
-2. It is passed as a callback to the `processFile` function, which simulates file processing with a delay.
-
-### Advantages of Function Expressions
-
-- **Clean Code:** They allow inline definition, reducing clutter.
-- **Better Encapsulation:** Prevents global scope pollution.
-- **Dynamic Behavior:** They allow you to create unique functions tailored to specific scenarios.
-- **Reusable:** Named function expressions can be reused, and anonymous functions allow for one-time usage.
-
-Function expressions are a powerful tool in JavaScript, making callbacks cleaner, more modular, and easier to work with.
-
----
-
-## Conclusion
-
-- **Function Declarations:** Ideal for defining reusable functions that benefit from hoisting.
-- **Function Expressions:** Perfect for creating functions on the fly, especially as callbacks, promoting cleaner and more modular code.
-
-
-<!-- .............................................................. -->
-
-<br>
-
-
-# Anonymous Functions in JavaScript: A Deep Dive 
-
-Anonymous functions in JavaScript are unnamed functions, primarily used in scenarios requiring temporary, concise, and functional operations. They are a cornerstone of modern JavaScript, especially in functional and event-driven programming.
-
----
-
-## Key Features of Anonymous Functions
-
-1. **Nameless Power**: Anonymous functions don’t have an identifier, focusing entirely on functionality rather than identity.
-2. **Temporary Scope**: Ideal for single-use operations like callbacks or immediate invocations.
-3. **Concise Syntax**: Avoids unnecessary boilerplate, keeping the code clean and minimal.
-
----
-
-## Syntax and Usage
-
-The basic syntax for an anonymous function looks like this:
-
-```javascript
-function(parameter1, parameter2) {
-    // function body
-}
-```
-
-### Common Usage Patterns
-
-#### Assigning to a Variable
-
-```javascript
-const square = function(num) {
-    return num * num;
-};
-
-console.log(square(4)); // Output: 16
-```
-
-#### Passing as a Callback
-
-```javascript
+// Using an anonymous function in setTimeout
 setTimeout(function() {
-    console.log("Executed after 2 seconds");
+    console.log("This message appears after 2 seconds.");
 }, 2000);
 ```
 
-#### Inline Usage in Event Listeners
-
-```javascript
-document.getElementById("myButton").addEventListener("click", function() {
-    console.log("Button clicked!");
-});
-```
-
-#### Immediately Invoked Function Expressions (IIFE)
-
-```javascript
-(function() {
-    console.log("This runs immediately!");
-})();
-```
-
 ---
 
-## Advanced Use Cases
+## Why Functions Are Special in JavaScript
 
-### Array Manipulation with Anonymous Functions
-
-```javascript
-const numbers = [1, 2, 3, 4];
-const doubled = numbers.map(function(num) {
-    return num * 2;
-});
-
-console.log(doubled); // Output: [2, 4, 6, 8]
-```
-
-**Why Use Anonymous Functions Here?**
-
-- The function is used once and does not require naming.
-- Keeps the logic encapsulated within the `map` method.
-
----
-
-### Higher-Order Functions with Anonymous Callbacks
+In JavaScript, functions are **callable objects**. They can have properties, be assigned to variables, passed into arguments, and returned from other functions:
 
 ```javascript
-function executeCallback(callback) {
-    const data = "Processed Data";
-    callback(data);
+function test() {
+    console.log("Hello!");
 }
 
-executeCallback(function(data) {
-    console.log(`Callback received: ${data}`);
-});
-// Output: Callback received: Processed Data
+console.log(typeof test); // Output: "function"
 ```
-
----
-
-### Asynchronous Operations
-
-Anonymous functions shine in asynchronous workflows like handling promises or timers:
-
-```javascript
-setTimeout(function() {
-    console.log("Operation completed after delay");
-}, 3000);
-
-Promise.resolve("Async Result").then(function(result) {
-    console.log(result); // Output: Async Result
-});
-```
-
----
-
-## Benefits of Anonymous Functions
-
-1. **Conciseness**: Reduces boilerplate code by focusing only on the task at hand.
-2. **Readability**: Simplifies code, especially when paired with higher-order functions.
-3. **Encapsulation**: Keeps logic localized without polluting the namespace.
-4. **Dynamic Behavior**: Creates ad-hoc functionality tailored to specific scenarios.
-
----
-
-## Limitations
-
-1. **No Self-Reference**: Without a name, the function cannot refer to itself directly, complicating recursion.
-2. **Debugging Complexity**: Error stacks may not include a function name, making debugging harder.
-3. **Reuse Challenges**: Cannot be reused unless assigned to a variable.
-
----
-
-## Real-World Example: Custom Event Handling
-
-```javascript
-document.addEventListener("keydown", function(event) {
-    if (event.key === "Enter") {
-        console.log("Enter key pressed!");
-    }
-});
-```
-
----
-
-## Real-World Example: Real-Time Data Processing
-
-```javascript
-const processData = function(data, callback) {
-    console.log("Processing data...");
-    setTimeout(function() {
-        const processedData = data.toUpperCase();
-        callback(processedData);
-    }, 1000);
-};
-
-processData("anonymous", function(result) {
-    console.log(`Processed Result: ${result}`);
-});
-// Output:
-// Processing data...
-// Processed Result: ANONYMOUS
-```
-
----
-
-## Anonymous Functions vs. Arrow Functions
-
-Modern JavaScript often uses **arrow functions** as a concise alternative to anonymous functions:
-
-```javascript
-setTimeout(() => console.log("Arrow Function Example"), 1000);
-```
-
-While arrow functions simplify syntax, anonymous functions remain crucial for use cases requiring `this` context or traditional function behavior.
+Even though they are internally objects, JavaScript gives them a special `typeof "function"` identifier because they can be invoked with `()`.
 
 ---
 
 ## Conclusion
 
-Anonymous functions are a powerful, flexible, and essential part of JavaScript's toolkit. Whether you're working with callbacks, asynchronous operations, or event handling, anonymous functions help you write cleaner, more efficient, and modular code. By mastering their use, you can elevate your JavaScript skills to tackle advanced programming challenges with confidence. 
-
-
-<br>
-
-# Why functions are not just objects:
-
-In JavaScript, **functions are actually objects**, but they are treated as a special type called `"function"` because they have unique properties and behaviors that differentiate them from regular objects.
-
-
-1. **Functions have executable code**:
-   - Functions are **callable objects** that can be executed. They contain executable code that can be invoked using parentheses `()`.
-
-   ```javascript
-   function greet() {
-       console.log("Hello!");
-   }
-   greet();  // This calls the function and prints "Hello!"
-   ```
-
-2. **Special properties**:
-   - Functions have special properties, such as `length` (the number of arguments expected) and `prototype`, that regular objects do not have.
-   
-   ```javascript
-   console.log(greet.length);  // 0 (no parameters in greet function)
-   ```
-
-3. **`typeof` function returns `"function"`**:
-   - JavaScript defines `typeof` for functions to return `"function"` instead of `"object"` to make it easier to identify functions.
-
-   ```javascript
-   console.log(typeof greet);  // "function"
-   ```
-
-### Why `"function"` and not `"object"`:
-- Functions are **still objects** (they can have properties, be assigned to variables, etc.), but they are **special objects** because they are executable. To avoid confusion and make identifying functions easier, JavaScript returns `"function"` for `typeof` checks on functions.
-  
-### In Summary:
-Functions are treated as a separate type (`"function"`) because they have special capabilities (like being callable) and properties, even though they are technically objects under the hood.
+1. **Declarations vs. Expressions:** Declarations are hoisted; function expressions are stored inside variables[cite: 6].
+2. **Scope Hierarchy:** Variables resolve from Local/Block $\rightarrow$ Lexical (Parent) $\rightarrow$ Global.
+3. **Higher-Order Functions:** JavaScript functions can be passed as arguments or returned from other functions.
+4. **Methods:** Functions stored inside objects to define behaviors.
+5. **First-Class Citizens:** Functions in JS can be treated like any regular value (assigned, copied, returned).
