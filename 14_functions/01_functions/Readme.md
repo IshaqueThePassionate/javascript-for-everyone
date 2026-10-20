@@ -24,17 +24,12 @@ A comprehensive and beginner-friendly reference guide covering core JavaScript f
 - [Practice Questions (Return Statement)](#practice-questions-return-statement)
   - [Practice Question 2: Sum from 1 to N (`getSum`)](#practice-question-2-sum-from-1-to-n-getsum)
   - [Practice Question 3: Concatenate Array of Strings (`concat`)](#practice-question-3-concatenate-array-of-strings-concat)
-- [4. Scope in JavaScript](#4-scope-in-javascript)
-  - [What is Scope? (Global vs Function Scope)](#what-is-scope-global-vs-function-scope)
-  - [Block Scope](#block-scope)
-  - [Lexical Scope](#lexical-scope)
-  - [Practice Question 7: Lexical Scope Output Tracing](#practice-question-7-lexical-scope-output-tracing)
-- [5. Function Expressions](#5-function-expressions)
-- [6. Higher-Order Functions](#6-higher-order-functions)
+- [4. Function Expressions](#5-function-expressions)
+- [5. Higher-Order Functions](#6-higher-order-functions)
   - [Higher-Order Functions: Taking Functions as Arguments](#higher-order-functions-taking-functions-as-arguments)
   - [Higher-Order Functions: Returning a Function](#higher-order-functions-returning-a-function)
-- [7. Methods (Functions inside Objects)](#7-methods-functions-inside-objects)
-- [8. Anonymous Functions](#8-anonymous-functions)
+- [6. Methods (Functions inside Objects)](#7-methods-functions-inside-objects)
+- [7. Anonymous Functions](#8-anonymous-functions)
   - [Assigning to Variables](#assigning-to-variables)
   - [Using as Simple Callbacks](#using-as-simple-callbacks)
 - [Why Functions Are Special in JavaScript](#why-functions-are-special-in-javascript)
@@ -427,203 +422,9 @@ console.log(concat(str)); // Output: "hihellobye!"
 
 ---
 
-## 4. Scope in JavaScript
 
-Scope defines the accessibility (visibility) of variables in different parts of your code.
 
-### What is Scope? (Global vs Function Scope)
-
-- **Global Scope:** Variables declared outside any function can be accessed anywhere in your code.
-- **Function Scope:** Variables declared inside a function cannot be accessed from outside that function.
-
-#### Example 1 (Easy): Basic Function Scope
-```javascript
-let appName = "TodoApp"; // Global
-
-function showApp() {
-    let version = "1.0.0"; // Function Scope
-    console.log(appName);  // Accessible: TodoApp
-    console.log(version);  // Accessible: 1.0.0
-}
-
-showApp();
-// console.log(version); // ReferenceError: version is not defined
-```
-
-#### Example 2 (Medium): Overriding Global Variables (Shadowing)
-```javascript
-let totalMarks = 100; // Global
-
-function updateMarks() {
-    let totalMarks = 85; // Local variable shadows global variable
-    console.log("Local Marks:", totalMarks); // Output: 85
-}
-
-updateMarks();
-console.log("Global Marks:", totalMarks); // Output: 100 (Unchanged)
-```
-
-#### Example 3 (Advance): Multiple Functions Scope Isolation
-```javascript
-let balance = 1000;
-
-function credit() {
-    let bonus = 200;
-    balance += bonus;
-}
-
-function debit() {
-    let penalty = 50;
-    balance -= penalty;
-    // console.log(bonus); // ReferenceError: bonus is isolated to credit()
-}
-
-credit();
-debit();
-console.log("Remaining Balance:", balance); // Output: 1150
-```
-
----
-
-### Block Scope
-
-Variables declared using `let` and `const` inside `{}` braces are limited only to that block. Variables declared with `var` do not respect block boundaries.
-
-#### Example 1 (Easy): `if` Statement Block
-```javascript
-let condition = true;
-
-if (condition) {
-    let insideVal = 25;
-    console.log(insideVal); // Output: 25
-}
-
-// console.log(insideVal); // ReferenceError: insideVal is not defined
-```
-
-#### Example 2 (Medium): `for` Loop Block Scope
-```javascript
-for (let i = 1; i <= 3; i++) {
-    let stepName = `Step-${i}`;
-    console.log(stepName);
-}
-
-// console.log(i);        // ReferenceError: i is not defined
-// console.log(stepName); // ReferenceError: stepName is not defined
-```
-
-#### Example 3 (Advance): Comparing `let` and `var` in Blocks
-```javascript
-{
-    let blockedLet = "Hidden";
-    const blockedConst = "Locked";
-    var leakedVar = "I escaped!";
-}
-
-console.log(leakedVar); // Output: "I escaped!" (var leaks out of block)
-// console.log(blockedLet);   // ReferenceError
-// console.log(blockedConst); // ReferenceError
-```
-
----
-
-### Lexical Scope
-
-Lexical scope means that an inner nested function has full access to the variables defined in its parent (outer) function.
-
-#### Example 1 (Easy): Basic Nested Function Access
-```javascript
-function outer() {
-    let city = "Jacobabad";
-
-    function inner() {
-        console.log("City is:", city); // Accessible from outer scope
-    }
-
-    inner();
-}
-
-outer(); // Output: City is: Jacobabad
-```
-
-#### Example 2 (Medium): Multi-Level Nested Lexical Access
-```javascript
-function grandParent() {
-    let surname = "Ishaque";
-
-    function parent() {
-        let middle = "Ali";
-
-        function child() {
-            let first = "Hamza";
-            console.log(`${first} ${middle} ${surname}`);
-        }
-
-        child();
-    }
-
-    parent();
-}
-
-grandParent(); // Output: Hamza Ali Ishaque
-```
-
-#### Example 3 (Advance): Outer Cannot Access Inner (One-Way Street)
-```javascript
-function department() {
-    let deptName = "Computer Science";
-
-    function lab() {
-        let computers = 40;
-        console.log(`Department: ${deptName}, Systems: ${computers}`);
-    }
-
-    lab();
-    // console.log(computers); // ReferenceError: outer function cannot look inwards!
-}
-
-department();
-```
-
----
-
-### Practice Question 7: Lexical Scope Output Tracing
-
-**Problem:** Predict the output of the following nested function code:
-
-```javascript
-let greet = "hello"; // Global Scope
-
-function changeGreet() {
-    let greet = "namaste"; // Function Scope (Outer)
-    console.log(greet);
-
-    function innerGreet() {
-        console.log(greet); // Refers to the closest outer lexical scope
-    }
-
-    innerGreet();
-}
-
-console.log(greet);
-changeGreet();
-```
-
-**Output:**
-```text
-hello
-namaste
-namaste
-```
-
-**Explanation:**
-1. The first `console.log(greet)` refers to the global variable `"hello"`.
-2. Inside `changeGreet()`, a local `greet` variable is created with the value `"namaste"`.
-3. `innerGreet()` does not have its own `greet`, so it looks up lexically to its parent function `changeGreet()` and prints `"namaste"`.
-
----
-
-## 5. Function Expressions
+## 4. Function Expressions
 
 A function expression defines a function and stores it inside a variable. Function expressions are **not hoisted**—you cannot call them before the line on which they are declared.
 
@@ -664,7 +465,7 @@ console.log(filterEvens(numbersList)); // Output: [2, 4, 6, 8]
 
 ---
 
-## 6. Higher-Order Functions
+## 5. Higher-Order Functions
 
 A **Higher-Order Function** is a function that either takes another function as an argument, or returns a function.
 
@@ -775,7 +576,7 @@ console.log(triple(15)); // Output: 45
 
 ---
 
-## 7. Methods (Functions inside Objects)
+## 6. Methods (Functions inside Objects)
 
 When a function is stored as a property of an object, it is called a **Method**.
 
@@ -835,7 +636,7 @@ console.log(bankAccount.withdraw(2000)); // Output: Withdrew 2000. Remaining: 45
 
 ---
 
-## 8. Anonymous Functions
+## 7. Anonymous Functions
 
 An **Anonymous Function** is simply a function without a name identifier.
 
