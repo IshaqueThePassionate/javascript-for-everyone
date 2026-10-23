@@ -73,7 +73,7 @@ person1 = person;
 
 1. **Step 1**: An object named `person` is created with properties `name` and `age`.
 2. **Step 2**: The object `person` is assigned to a new variable `person1` using the assignment `person1 = person;`.
-3. **Step 3**: The diagram shows that both `person` and `person1` are referencing (pointing) to the same object in memory.
+3. **Step 3**: The diagram shows that both `person` and `person1` are referencing (pointing) to the same object in memory..
 
 
 
