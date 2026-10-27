@@ -23,19 +23,19 @@ Discover how **arrow functions** provide a more concise syntax for writing funct
 ### **[03_Scopes_in_Js](03_Scopes_in_Js/)**
 Explore how **scoping** works in JavaScript, including global scope, function scope, and block scope with `let` and `const`.
 
-### **[06_Optional_Arguments](06_Optional_Arguments/)**
+### **[04_Optional_Arguments](04_Optional_Arguments/)**
 Discover how **optional arguments** allow flexibility when calling functions by handling cases where fewer or additional arguments are passed[cite: 21].
 
-### **[07_lexical_scope](07_lexical_scope/)**
+### **[05_lexical_scope_in_functions](05_lexical_scope_in_functions/)**
 Understand **lexical scoping** and how inner functions resolve variable access based on their physical placement in the source code.
 
-### **[08_closure](08_closure/)**
+### **[06_closure](06_closure/)**
 Dive into **closures** and understand how they allow inner functions to retain access to variables from their outer function, even after the outer function has returned[cite: 21].
 
-### **[09_the_call_stack](09_the_call_stack/)**
+### **[07_the_call_stack](07_the_call_stack/)**
 Understand the **call stack**, how it works in JavaScript, and why it's important in tracking the flow of function execution[cite: 21].
 
-### **[10_Difference_between_functions](10_Difference_between_functions_and_methods/)**
+### **[08_Difference_between_functions_and_methods](08_Difference_between_functions_and_methods/)**
 Compare and contrast the key **differences between various function types** in JavaScript, including function declarations, function expressions, and arrow functions.
 [cite: 20, 21]
 
