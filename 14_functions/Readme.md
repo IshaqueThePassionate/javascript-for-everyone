@@ -32,12 +32,9 @@ Understand **lexical scoping** and how inner functions resolve variable access b
 ### **[06_closure](06_closure/)**
 Dive into **closures** and understand how they allow inner functions to retain access to variables from their outer function, even after the outer function has returned[cite: 21].
 
-### **[07_the_call_stack](07_the_call_stack/)**
-Understand the **call stack**, how it works in JavaScript, and why it's important in tracking the flow of function execution[cite: 21].
-
-### **[08_Difference_between_functions_and_methods](08_Difference_between_functions_and_methods/)**
+### **[07_functions_vs_methods](07_functions_vs_methods/)**
 Compare and contrast the key **differences between various function types** in JavaScript, including function declarations, function expressions, and arrow functions.
-[cite: 20, 21]
+[cite: 21]
 
 
 ## How to Use This Repository
