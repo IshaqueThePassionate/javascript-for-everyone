@@ -63,7 +63,3 @@ Work through hands-on activities, practical challenge questions, and mini-projec
 3. **One Script at a Time:** In your `index.html`, keep only the currently tested `.js` script linked via `<script src="...">` to prevent script execution conflicts.
 
 ```
-
-Isko aap direct `24_DOM_Document_Object_Model/Readme.md` mein paste kar sakte hain[cite: 27].
-
-```
