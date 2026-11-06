@@ -1,3 +1,4 @@
+
 # JavaScript Destructuring
 
 JavaScript Destructuring is a powerful feature introduced in ES6 that allows you to extract values from arrays or properties from objects and assign them to variables in a concise and readable way.
@@ -11,13 +12,27 @@ Destructuring simplifies the process of extracting data from arrays and objects 
 
 ### Array Destructuring
 
-Extract values based on their position in an array.
+Extract values based on their position in an array[cite: 11].
 
 ```javascript
 // Basic Array Destructuring
 const numbers = [1, 2, 3];
 const [a, b, c] = numbers;
 console.log(a, b, c); // Output: 1 2 3
+
+// Storing values of array into multiple variables (Example 1)
+let names = ["tony", "bruce", "steve", "peter"];
+let [winner, runnerup] = names;
+console.log(winner, runnerup); // Output: "tony" "bruce"
+
+// Extracting multiple positions vs manual indexing (Example 2)
+// let winner = names[0];
+// let runnerup = names[1];
+// let secondRunnerup = names[2];
+let [winnerName, runnerupName, secondRunnerup] = names;
+console.log(winnerName);         // Output: "tony"
+console.log(runnerupName);       // Output: "bruce"
+console.log(secondRunnerup); // Output: "steve"
 
 // Skipping Elements
 const fruits = ['apple', 'banana', 'cherry'];
@@ -27,7 +42,7 @@ console.log(firstFruit, thirdFruit); // Output: apple cherry
 
 ### Object Destructuring
 
-Extract values from object properties by matching property names.
+Extract values from object properties by matching property names[cite: 15, 17].
 
 ```javascript
 // Basic Object Destructuring
@@ -39,9 +54,29 @@ const user = {
 const { name, age, country } = user;
 console.log(name, age, country); // Output: Alice 25 Wonderland
 
+// Extracting matching keys from a student record
+const student = {
+  name: "karan",
+  age: 14,
+  class: 9,
+  subjects: ["hindi", "english", "math", "science"],
+  username: "karan@123",
+  password: "abcd"
+};
+
+// Replaces manual assignment: let username = student.username;
+let { username, password } = student;
+console.log(username); // Output: "karan@123"
+console.log(password); // Output: "abcd"
+
 // Renaming Variables
 const { name: userName, age: userAge } = user;
 console.log(userName, userAge); // Output: Alice 25
+
+// Renaming Variables with Aliases (username -> user, password -> pass)
+const { username: userAlias, password: passAlias } = student;
+console.log(userAlias); // Output: "karan@123"
+console.log(passAlias); // Output: "abcd"
 ```
 
 ---
@@ -50,7 +85,7 @@ console.log(userName, userAge); // Output: Alice 25
 
 ### Default Values
 
-Assign a default value if the property or element is undefined.
+Assign a default value if the property or element is undefined[cite: 19].
 
 ```javascript
 const settings = {
@@ -59,6 +94,23 @@ const settings = {
 
 const { theme, fontSize = 14 } = settings;
 console.log(theme, fontSize); // Output: dark 14
+
+// Combining Aliases and Default Values
+const studentRecord = {
+  name: "karan",
+  age: 14,
+  class: 9,
+  subjects: ["hindi", "english", "math", "science"],
+  username: "karan@123",
+  password: "abcd",
+  city: "Pune"
+};
+
+// 'location' is not present in studentRecord, so it falls back to "Mumbai"
+let { username: studentUser, password: secretPass, location = "Mumbai" } = studentRecord;
+console.log(studentUser); // Output: "karan@123"
+console.log(secretPass);  // Output: "abcd"
+console.log(location);    // Output: "Mumbai"
 ```
 
 ### Nested Destructuring
@@ -86,13 +138,20 @@ console.log(firstNum, secondNum, thirdNum, fourthNum); // Output: 1 2 3 4
 
 ### Rest Operator
 
-Collect remaining values in an array or object into a new variable.
+Collect remaining values in an array or object into a new variable[cite: 14].
 
 ```javascript
 // Array Rest
 const colors = ['red', 'green', 'blue', 'yellow'];
 const [primary, secondary, ...others] = colors;
 console.log(primary, secondary, others); // Output: red green [ 'blue', 'yellow' ]
+
+// Collecting trailing array elements with Rest Operator
+let extendedNames = ["tony", "bruce", "peter", "steve", "abc", "xyz", "pyq"];
+let [firstPlace, secondPlace, ...remainingParticipants] = extendedNames;
+console.log(firstPlace);             // Output: "tony"
+console.log(secondPlace);            // Output: "bruce"
+console.log(remainingParticipants);  // Output: [ 'peter', 'steve', 'abc', 'xyz', 'pyq' ]
 
 // Object Rest
 const { name: userName2, ...otherProps } = { name: 'Alice', age: 30, city: 'Wonderland' };
@@ -165,3 +224,4 @@ JavaScript Destructuring is a versatile tool that makes your code more readable 
 ---
 
 Feel free to explore and experiment with these examples in your own projects. For further reading, check out the [MDN Web Docs on Destructuring Assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment).
+
